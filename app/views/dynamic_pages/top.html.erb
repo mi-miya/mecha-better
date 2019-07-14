@@ -1,5 +1,12 @@
 <h1>Top</h1>
 
+<% if logged_in? %>
+  <%= link_to 'log out', '/logout' %>
+  <%= @user.name %>さん、こんにちは。
+<% else %>
+  <%= link_to 'Githubアカウントでログイン', '/auth/github' %>
+<% end %>
+
 <ul>
     <li>サイトの簡単な説明</li>
     <li>新着Idea</li>
