@@ -1,17 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  provider: MyString
-  uid: MyText
-  oauth_token: MyString
-  icon: MyString
-  email: MyString
+twitter_user:
+  name: user_name
+  provider: twitter
+  uid: user_uid
+  oauth_token: user_oauth_token
+  icon: https://avatars0.githubusercontent.com/u/24958187?...
+  email: user_email
 
-two:
-  name: MyString
-  provider: MyString
-  uid: MyText
-  oauth_token: MyString
-  icon: MyString
-  email: MyString
+github_user:
+  name: user_name
+  provider: github
+  uid: user_uid
+  oauth_token: user_oauth_token
+  icon: https://avatars0.githubusercontent.com/u/24958187?...
+  email: user_email
+
+facebook_user:
+  name: user_name
+  provider: facebook
+  uid: user_uid
+  oauth_token: user_oauth_token
+  icon: https://avatars0.githubusercontent.com/u/24958187?...
+  email: user_email
