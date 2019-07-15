@@ -3,9 +3,14 @@ class User < ApplicationRecord
         email = auth[:info][:email]
         provider = auth[:provider]
         uid = auth[:uid]
-        name = auth[:info][:nickname]
         icon = auth[:info][:image]
         oauth_token = auth[:credentials][:token]
+        case provider
+        when "twitter", "facebook" then
+            name = auth[:info][:name]
+        when "github" then
+            name = auth[:info][:nickname]
+        end
 
         self.find_or_create_by(provider: provider, uid: uid) do |user|
             user.email = email
