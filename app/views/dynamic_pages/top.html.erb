@@ -4,7 +4,8 @@
   <%= link_to 'log out', '/logout' %>
   <%= @user.name %>さん、こんにちは。
 <% else %>
-  <%= link_to 'Githubアカウントでログイン', '/auth/github' %>
+  <%# <%= link_to 'GitHubアカウントでログイン', '/auth/github' %>
+  <%= link_to 'Twitterアカウントでログイン', '/auth/twitter' %>
 <% end %>
 
 <ul>

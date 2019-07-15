@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # OAuth
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'rails-env-credentials'
