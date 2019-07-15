@@ -3,8 +3,9 @@
 <% if logged_in? %>
   <%= link_to 'log out', '/logout' %>
   <%= @user.name %>さん、こんにちは。
+  <%= image_tag(@user.icon) %>
 <% else %>
-  <%# <%= link_to 'GitHubアカウントでログイン', '/auth/github' %>
+  <%= link_to 'GitHubアカウントでログイン', '/auth/github' %>
   <%= link_to 'Twitterアカウントでログイン', '/auth/twitter' %>
 <% end %>
 
