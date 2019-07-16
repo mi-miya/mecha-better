@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_135951) do
+ActiveRecord::Schema.define(version: 2019_07_16_165159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applauses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "idea_id"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idea_id"], name: "index_applauses_on_idea_id"
+    t.index ["user_id", "idea_id"], name: "index_applauses_on_user_id_and_idea_id", unique: true
+    t.index ["user_id"], name: "index_applauses_on_user_id"
+  end
 
   create_table "idea_reactions", force: :cascade do |t|
     t.bigint "user_id"
@@ -47,6 +58,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_135951) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "applauses", "ideas"
+  add_foreign_key "applauses", "users"
   add_foreign_key "idea_reactions", "ideas"
   add_foreign_key "idea_reactions", "users"
   add_foreign_key "ideas", "users"

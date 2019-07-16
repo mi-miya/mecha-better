@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :ideas
     has_many :idea_reactions
+    has_many :applauses
 
     def self.find_or_create_from_auth(auth)
         email = auth[:info][:email]
