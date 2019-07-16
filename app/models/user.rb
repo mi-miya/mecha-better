@@ -25,4 +25,27 @@ class User < ApplicationRecord
             user.oauth_token = oauth_token
         end
     end
+
+    # 拍手
+    def applaud(idea)
+        applause = Applause.find_by(idea_id: idea.id)
+        if self.applauded?(idea)
+            applause.count += 1
+            applause.save
+        else
+            Applause.create(user_id: self.id, idea_id: idea.id, count: 1)
+        end
+    end
+
+    # 拍手を取り消す
+    def un_applaud(idea)
+        applause = applauses.find_by(idea_id: idea.id)
+        applause.destroy if applause
+    end
+
+    # 既に拍手しているか判定
+    def  applauded?(idea)
+        !!self.applauses.find_by(idea_id: idea.id)
+    end
+
 end
