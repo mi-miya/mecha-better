@@ -6,7 +6,7 @@ class IdeaTest < ActiveSupport::TestCase
     @idea = Idea.new(user_id: 1, title: "title", body: "bodybodybody", tag: "tag", state: "未実現")
   end
 
-  test "カラムのバリデーションテスト" do
+  test "Ideaモデル バリデーションテスト" do
     assert @idea.save
     ### Save失敗ケース
     # Userが空の場合

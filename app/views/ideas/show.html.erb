@@ -1,5 +1,16 @@
 <h1><%= @idea.title %>詳細ページ</h1>
+
 <ul>
-    <li>最新の投稿一覧</li>
-    <li>お気にいり投稿一覧</li>
+    <% @idea_reactions.each do |idea_reaction| %>
+        <li>
+            <%= idea_reaction.comment %>/
+            <%= idea_reaction.user.name %>
+        </li>
+        <br>
+    <% end %>
 </ul>
+
+<%= form_for(@idea_reaction, url: idea_idea_reactions_path(@idea, @idea_reaction)) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit '送信' %>
+<% end %>

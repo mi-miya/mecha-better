@@ -1,0 +1,2 @@
+module IdeaReactionsHelper
+end

@@ -1,4 +1,5 @@
 class Idea < ApplicationRecord
+  has_many :idea_reactions
   belongs_to :user, required: true
   validates :title, presence: true, length: {maximum: 50}
   validates :body,  presence: true, length: {minimum: 10, maximum: 2000}

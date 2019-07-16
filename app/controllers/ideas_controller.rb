@@ -22,6 +22,8 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @idea_reactions = @idea.idea_reactions
+    @idea_reaction = IdeaReaction.new
   end
 
   private
