@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :ideas
+
     def self.find_or_create_from_auth(auth)
         email = auth[:info][:email]
         provider = auth[:provider]
