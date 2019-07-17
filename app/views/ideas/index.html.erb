@@ -4,5 +4,6 @@
     <%= link_to(idea) do %>
         <%= idea.title %>
     <% end %>
+    <%= idea.applauses.sum(:count) %>
     <br>
 <% end %>

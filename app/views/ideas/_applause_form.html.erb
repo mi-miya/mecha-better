@@ -1,0 +1,4 @@
+<%= form_for(current_user.applauses.build, remote: true, html: {id: "applause_form"}) do |f| %>
+    <%= hidden_field_tag :idea_id, @idea.id %>
+    <%= f.submit @idea.applauses.sum(:count), class: "btn btn-primary" %>
+<% end %>
