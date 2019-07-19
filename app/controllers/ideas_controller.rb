@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :authenticate, only: [:create, :new]
+  # before_action :authenticate, only: [:create, :new]
 
   def index
     ideas = []

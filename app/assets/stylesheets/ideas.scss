@@ -1,7 +1,16 @@
 @import "media.scss";
 
+//idea list 背景色
+$idea_color: #f2fcee; 
+// borderその他の色
+$idea_border_color: #86ce00;
+$idea_shadow_color: #b7ff7c;
+
 .ideas {
     overflow: hidden;
+    @include mediaTB {
+        padding-bottom: 30px;
+    }
     .ideas_header {
         padding: 20vw 0;
         text-align: center;
@@ -36,7 +45,7 @@
     form#ideas_form {
         width: 80vw;
         margin: 6vw auto;
-        border: 1px solid #dd9047;
+        border: 1px solid $idea_border_color;
         box-sizing: border-box;
         @include mediaTB {
             width: 50rem;
@@ -63,7 +72,7 @@
                 width: 20%;
                 padding: 2vw 0 1.5vw;
                 border: none;
-                background-color: #2b6eff;
+                background-color: $idea_border_color;
                 vertical-align: middle;
                 @include mediaTB {
                     padding: 8px;
@@ -84,7 +93,7 @@
             input[type=radio] {
                 display: none;
                 &:checked + label {
-                    background-color: #dd9047;
+                    background-color: $idea_border_color;
                     color: #ffffff;
                 }
             }
@@ -93,7 +102,7 @@
                 padding: 2vw 0;
                 text-align: center;
                 font-size: 3vw;
-                border: 1px solid #dd9047;
+                border: 1px solid $idea_border_color;
                 box-sizing: border-box;
                 @include mediaTB {
                     padding: 8px 0;
@@ -109,6 +118,7 @@
         @include mediaTB {
             width: auto;
             margin: 0 auto;
+            padding: 20px 0;
         }
         li.idea_content {
             width: 100%;
@@ -116,8 +126,9 @@
             margin-bottom: 5vw;
             padding: 3vw;
             position: relative;
-            background-color: #fff3eb;
+            background-color: $idea_color;
             border-radius: 2vw;
+            box-shadow: 1.4vw 1.6vw 1.6vw -1vw $idea_shadow_color;
             @include mediaTB {
                 width: 330px;
                 max-width: 330px;
@@ -125,6 +136,7 @@
                 padding: 10px 8px 7px;
                 border-radius: 5px;
                 display: inline-block;
+                box-shadow: 5px 5px 5px -2px #9ee091;
             }
             &:last-child {
                 @include mediaSP {
@@ -246,6 +258,115 @@
                             line-height: 30px;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+.idea_new {
+    .idea_new_top {
+        padding: 14vw 0;
+        background-image: image-url('top.jpg');
+        background-size: cover;
+        background-position: center;
+        @include mediaTB {
+            padding: 120px 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 7vw;
+            transform: rotate(-5deg);
+            font-weight: bold;
+            color: #ffffff;
+            @include mediaTB {
+                font-size: 4rem;
+            }
+        }
+    }
+    form.new_idea {
+        width: 85vw;
+        margin: 0 auto;
+        padding: 10vw 0;
+        @include mediaTB {
+            width: 100%;
+            max-width: 800px;
+            padding: 50px 0;
+        }
+        .form_input {
+            margin-bottom: 4vw;
+            display: flex;
+            flex-direction: column;
+            @include mediaTB {
+                margin-bottom: 30px;
+            }
+            label {
+                font-size: 4.8vw;
+                @include mediaTB {
+                    font-size: 2rem;
+                }
+            }
+            input, textarea {
+                padding: 1.8vw;
+                font-size: 3.8vw;
+                line-height: 4.5vw;
+                border-color: #b3b3b3;
+                transition-duration: 100ms;
+                @include mediaTB {
+                    padding: 6px 10px;
+                    font-size: 1.5rem;
+                    line-height: 2.4rem;
+                }
+                &:focus {
+                    outline: 0;
+                    box-shadow:0 0 2vw 0 #9ee091;
+                    @include mediaTB {
+                        box-shadow:0 0 1rem 0 #9ee091;
+                    }
+                }
+            }
+            .supplement {
+                margin-left: 4vw;
+                color: #636363;
+                font-size: 3.6vw;
+                line-height: 4.5vw;
+                @include mediaTB {
+                    margin-left: 16px;
+                    font-size: 1.4rem;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+        .form_button {
+            margin-top: 4vw;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            @include mediaTB {
+                margin-top: 15px;
+            }
+            input {
+                width: 60%;
+                margin: 0 auto 2vw;
+                padding: 1vw 0;
+                font-size: 4.5vw;
+                color: $idea_border_color;
+                border: 1px solid $idea_border_color;
+                @include mediaTB {
+                    width: 30%;
+                    margin: 0 auto 8px;
+                    padding: 10px 0;
+                    font-size: 1.8rem;
+                }
+            }
+            a {
+                margin: 0 auto;
+                display: inline;
+                font-size: 4vw;
+                color: #3f3f3f;
+                @include mediaTB {
+                    font-size: 1.6rem;
                 }
             }
         }

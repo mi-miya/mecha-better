@@ -1,15 +1,31 @@
-<h1>新規Idea登録</h1>
+<div class="idea_new">
+
+<div class="idea_new_top">
+    <h1>あなたのアイデア、教えて！</h1>
+</div>
 
 <%= form_for(@idea) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <div class="form_input form_field">
+        <%= f.label :title, "アイデア" %>
+        <%= f.text_field :title, placeholder: "例）アイデアを共有出来るサービスが欲しい！" %>
+    </div>
 
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+    <div class="form_input form_field">
+        <%= f.label :tag, "タグ" %>
+        <%= f.text_field :tag, placeholder: "例）アプリ,サービス,ウェブ" %>
+        <p class="supplement">&#x203B;タグはカンマ "," で区切ってください。</p>
+        <p class="supplement">&#x203B;スペースや空白文字は除外されます。</p>
+    </div>
 
-    <%= f.label :tag %>
-    <%= f.text_field :tag %>
+    <div class="form_input form_area">
+        <%= f.label :body, "詳細" %>
+        <%= f.text_area :body, placeholder: "例）思いついたアイデアを投稿できるWebサービスがほしいです。", rows: 8 %>
+    </div>
 
-    <%= f.submit '送信' %>
-    <%= link_to('スレッド一覧へ', ideas_path) %>
+    <div class="form_button">
+        <%= f.submit '送信' %>
+        <%= link_to('アイデア一覧へ', ideas_path) %>
+    </div>
 <% end %>
+
+</div>
