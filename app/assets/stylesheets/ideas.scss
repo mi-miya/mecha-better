@@ -1,3 +1,162 @@
-// Place all the styles related to the ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "media.scss";
+
+.ideas {
+    overflow: hidden;
+    .ideas_header {
+        padding: 20vw 0;
+        text-align: center;
+        background-image: image-url("top.jpg");
+        background-position: center;
+        background-size: cover;
+        h1 {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 7vw;
+        }
+        p {
+            width: 80vw;
+            margin: 0 auto;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 4vw;
+        }
+    }
+
+    form#ideas_form {
+        width: 80vw;
+        margin: 6vw auto;
+        border: 1px solid #dd9047;
+        box-sizing: border-box;
+        .ideas_form_option {
+            width: 100%;
+            input {
+                width: 70%;
+                padding: 2.5vw 1.5vw;
+                font-size: 3vw;
+                vertical-align: middle;
+                outline: none;
+                border: none;
+                box-sizing: border-box;
+            }
+            .search_button {
+                width: 29%;
+                padding: 2vw 0 1.5vw;
+                border: none;
+                background-color: #2b6eff;
+                vertical-align: middle;
+                img {
+                    width: 4vw;
+                    height: 4vw;
+                }
+            }
+        }
+        .ideas_form_states {
+            display: flex;
+            justify-content: space-around;
+            input[type=radio] {
+                display: none;
+                &:checked + label {
+                    background-color: #dd9047;
+                    color: #ffffff;
+                }
+            }
+            label {
+                width: 100%;
+                padding: 2vw 0;
+                text-align: center;
+                font-size: 3vw;
+                border: 1px solid #dd9047;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    ul.idea_list {
+        width: 90vw;
+        margin: 4vw auto;
+        li.idea_content {
+            padding: 3vw;
+            position: relative;
+            margin-bottom: 5vw;
+            background-color: #e6e6e6;
+            border-radius: 2vw;
+            &:last-child {
+                margin: 0;
+            }
+            .idea_applause {
+                position: absolute;
+                width: 17vw;
+                height: 17vw;
+                top: -4vw;
+                right: -4vw;
+                transform: rotate(20deg);
+                background-image: image-url("applause_alpha.png");
+                background-size: contain;
+                p {
+                    display: inline-block;
+                    text-align: center;
+                    line-height: 17vw;
+                    width: 17vw;
+                    height: 17vw;
+                    color: #000000b4;
+                    font-size: 9vw;
+                    font-weight: bold;
+                }
+            }
+            h2 {
+                font-size: 6vw;
+                text-align: center;
+                a {
+                    text-decoration: underline;
+                    color: #303030;
+                }
+            }
+            pre {
+                width: 100%;
+                margin: 2vw 0;
+                padding: 2vw 1vw;
+                box-sizing: border-box;
+                background-color: #ffffff;
+                font-size: 4vw;
+                line-height: 4.6vw;
+                white-space: -moz-pre-wrap; /* Mozilla */
+                white-space: -pre-wrap;     /* Opera 4-6 */
+                white-space: -o-pre-wrap;   /* Opera 7 */
+                white-space: pre-wrap;      /* CSS3 */
+                word-wrap: break-word;      /* IE 5.5+ */
+            }
+            .idea_tags {
+                width: 70vw;
+                margin: 0 auto;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                a {
+                    margin: 0 0.5vw;
+                    font-size: 4vw;
+                    color: #646464;
+                }
+            }
+            .idea_content_bottom {
+                width: 100%;
+                font-size: 4vw;
+                color: #3f3f3f;
+                display: flex;
+                justify-content: space-between;
+                div {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 5vw;
+                        height: 5vw;
+                        margin-right: 1vw;
+                        border-radius: 2.5vw;
+                    }
+                    p {
+                        line-height: 5vw;
+                    }
+                }
+            }
+        }
+    }
+}

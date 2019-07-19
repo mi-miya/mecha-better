@@ -1,13 +1,9 @@
-<h1>Top</h1>
-
 <% if logged_in? %>
   <%= link_to 'log out', '/logout' %>
   <%= @user.name %>さん、こんにちは。
   <%= image_tag(@user.icon) %>
 <% else %>
-  <%= link_to 'GitHubアカウントでログイン', '/auth/github' %>
-  <%= link_to 'Twitterアカウントでログイン', '/auth/twitter' %>
-  <%= link_to 'Facebookアカウントでログイン', '/auth/facebook' %>
+  <%= link_to("SignIn or SignUp", signin_path) %>
 <% end %>
 
 <ul>
