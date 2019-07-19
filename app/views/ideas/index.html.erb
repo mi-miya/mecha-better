@@ -8,11 +8,9 @@
 </div>
 
 <%= form_tag(ideas_path, :method => 'get', :id => "ideas_form") do %>
-    <div class="ideas_form_option">
+    <div class="ideas_form_input">
         <%= text_field_tag :search, params[:search] %>
         <%= button_tag sanitize(image_tag("search_white.png")), :type => "submit", :tag => nil, :class => "search_button" %>
-        <%# select_tag :state, options_for_select([[""], ["未実現"], ["実現済み"], ["対応中"], ["既にある"]], :selected => @selected) %>
-        <%# , data: {turbolinks: 'false'} %>
     </div>
     <div class="ideas_form_states">
         <%= radio_button_tag(:state, "") %>
@@ -50,7 +48,7 @@
                     <%= image_tag(idea.user.icon) %>
                     <p><%= idea.user.name %></p>
                 </div>
-                <p><%= idea.created_at.strftime("%Y/%m/%d") %></p>
+                <p><%= idea.created_at.strftime("%Y/%m/%d %H:%m") %></p>
             </div>
         </li>
     <% end %>
@@ -63,4 +61,12 @@
 <script type="text/javascript">
     state = "<%= find_radio(@state) %>";
     $(`#${state}`).prop('checked', true);
+    
+    // if($(window).width() >= 640){
+    var $grid = $('.idea_list').packery({
+        itemSelector: '.idea_content',
+        transitionDuration: "0.2s",
+    });
 </script>
+
+<script >

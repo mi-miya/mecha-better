@@ -8,17 +8,28 @@
         background-image: image-url("top.jpg");
         background-position: center;
         background-size: cover;
+        @include mediaTB {
+            padding: 130px 0;
+        }
         h1 {
             color: #ffffff;
             font-weight: bold;
-            font-size: 7vw;
+            font-size: 9vw;
+            transform: rotate(-5deg);
+            @include mediaTB {
+                font-size: 6rem;
+            }
         }
         p {
-            width: 80vw;
+            width: 80%;
             margin: 0 auto;
             font-weight: bold;
             color: #ffffff;
             font-size: 4vw;
+            transform: rotate(-5deg);
+            @include mediaTB {
+                font-size: 2rem;
+            }
         }
     }
 
@@ -27,26 +38,43 @@
         margin: 6vw auto;
         border: 1px solid #dd9047;
         box-sizing: border-box;
-        .ideas_form_option {
+        @include mediaTB {
+            width: 50rem;
+            margin: 30px auto;
+        }
+        .ideas_form_input {
             width: 100%;
+            display: flex;
+            justify-content: space-between;
             input {
-                width: 70%;
+                width: 80%;
                 padding: 2.5vw 1.5vw;
                 font-size: 3vw;
                 vertical-align: middle;
                 outline: none;
                 border: none;
                 box-sizing: border-box;
+                @include mediaTB {
+                    padding: 8px;
+                    font-size: 1.3rem;
+                }
             }
             .search_button {
-                width: 29%;
+                width: 20%;
                 padding: 2vw 0 1.5vw;
                 border: none;
                 background-color: #2b6eff;
                 vertical-align: middle;
+                @include mediaTB {
+                    padding: 8px;
+                }
                 img {
                     width: 4vw;
                     height: 4vw;
+                    @include mediaTB {
+                        width: 1.3rem;
+                        height: 1.3rem;
+                    }
                 }
             }
         }
@@ -67,6 +95,10 @@
                 font-size: 3vw;
                 border: 1px solid #dd9047;
                 box-sizing: border-box;
+                @include mediaTB {
+                    padding: 8px 0;
+                    font-size: 1.3rem;
+                }
             }
         }
     }
@@ -74,14 +106,30 @@
     ul.idea_list {
         width: 90vw;
         margin: 4vw auto;
+        @include mediaTB {
+            width: auto;
+            margin: 0 auto;
+        }
         li.idea_content {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 5vw;
             padding: 3vw;
             position: relative;
-            margin-bottom: 5vw;
-            background-color: #e6e6e6;
+            background-color: #fff3eb;
             border-radius: 2vw;
+            @include mediaTB {
+                width: 330px;
+                max-width: 330px;
+                margin: 10px;
+                padding: 10px 8px 7px;
+                border-radius: 5px;
+                display: inline-block;
+            }
             &:last-child {
-                margin: 0;
+                @include mediaSP {
+                    margin: 0;
+                }
             }
             .idea_applause {
                 position: absolute;
@@ -92,6 +140,12 @@
                 transform: rotate(20deg);
                 background-image: image-url("applause_alpha.png");
                 background-size: contain;
+                @include mediaTB {
+                    width: 70px;
+                    height: 70px;
+                    top: -18px;
+                    right: -18px;
+                }
                 p {
                     display: inline-block;
                     text-align: center;
@@ -101,59 +155,96 @@
                     color: #000000b4;
                     font-size: 9vw;
                     font-weight: bold;
+                    @include mediaTB {
+                        line-height: 70px;
+                        width: 70px;
+                        height: 70px;
+                        font-size: 4rem;
+                    }
                 }
             }
             h2 {
-                font-size: 6vw;
                 text-align: center;
                 a {
-                    text-decoration: underline;
+                    font-size: 5.5vw;
+                    line-height: 6.5vw;
                     color: #303030;
+                    @include mediaTB {
+                        font-size: 1.7rem;
+                        line-height: 2rem;
+                    }
                 }
             }
             pre {
                 width: 100%;
-                margin: 2vw 0;
-                padding: 2vw 1vw;
+                margin: 3vw 0;
+                padding: 4vw 3vw;
                 box-sizing: border-box;
-                background-color: #ffffff;
                 font-size: 4vw;
                 line-height: 4.6vw;
+                border-width: 1px 0 1px 0;
+                border-style: solid;
+                border-color: #8f8f8f;
                 white-space: -moz-pre-wrap; /* Mozilla */
                 white-space: -pre-wrap;     /* Opera 4-6 */
                 white-space: -o-pre-wrap;   /* Opera 7 */
                 white-space: pre-wrap;      /* CSS3 */
                 word-wrap: break-word;      /* IE 5.5+ */
+                @include mediaTB {
+                    margin: 5px 0;
+                    padding: 5px 15px;
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                    text-align: left;
+                }
             }
             .idea_tags {
-                width: 70vw;
+                width: 70%;
                 margin: 0 auto;
                 text-align: center;
-                display: flex;
-                justify-content: center;
                 a {
                     margin: 0 0.5vw;
                     font-size: 4vw;
                     color: #646464;
+                    @include mediaTB {
+                        margin: 5px;
+                        font-size: 1.2rem;
+                    }
                 }
             }
             .idea_content_bottom {
                 width: 100%;
+                padding: 0 2vw;
+                box-sizing: border-box;
                 font-size: 4vw;
-                color: #3f3f3f;
+                color: #5e5e5e;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                @include mediaTB {
+                    padding: 0 15px;
+                    font-size: 1.5rem;
+                }
                 div {
                     display: flex;
                     align-items: center;
                     img {
-                        width: 5vw;
-                        height: 5vw;
+                        width: 7vw;
+                        height: 7vw;
                         margin-right: 1vw;
-                        border-radius: 2.5vw;
+                        border-radius: 3.5vw;
+                        @include mediaTB {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 5px;
+                            border-radius: 15px;
+                        }
                     }
                     p {
-                        line-height: 5vw;
+                        line-height: 7vw;
+                        @include mediaTB {
+                            line-height: 30px;
+                        }
                     }
                 }
             }
