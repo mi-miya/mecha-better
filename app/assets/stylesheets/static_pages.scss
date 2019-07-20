@@ -1,3 +1,96 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "media.scss";
+
+.signin {
+    padding-top: 20vw;
+    @include mediaTB {
+        padding-top: 65px;
+    }
+    .signin_head {
+        margin-bottom: 8vw;
+        text-align: center;
+        @include mediaTB {
+            margin-bottom: 25px;
+        }
+        h1 {
+            font-size: 5vw;
+            @include mediaTB {
+                margin-bottom: 5px;
+                font-size: 2.4rem;
+            }
+        }
+        p {
+            font-size: 3.5vw;
+            @include mediaTB {
+                font-size: 1.6rem;
+            }
+        }
+    }
+    ul.signin_links {
+        display: flex;
+        flex-direction: column;
+        li {
+            width: 85vw;
+            margin: 3.5vw auto;
+            padding: 1vw 0;
+            border-radius: 5vw;
+            border-width: 1px;
+            border-style: solid;
+            text-align: center;
+            box-shadow:0 1vw 1vw -1vw #00000071;
+            &:active {
+                box-shadow: none;
+            }
+            @include mediaTB {
+                width: 300px;
+                margin: 10px auto 12px;
+                padding: 5px 0;
+                border-radius: 20px;
+                box-shadow:0 3.5px 3.5px -3px #0000008e;
+            }
+            a {
+                font-size: 5vw;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                border-radius: 5vw;
+                @include mediaTB {
+                    font-size: 1.8rem;
+                    border-radius: 20px;
+                }
+            }
+            &.twitter {
+                border-color: #00b4fc;
+                a {
+                    color: #00b4fc;
+                }
+            }
+            &.facebook {
+                border-color: #0041bb;
+                a {
+                    color: #0041bb;
+                }
+            }
+            &.github {
+                color: #000000;
+                border-color: #000000;
+                a {
+                    color: #000000;
+                }
+            }
+        }
+    }
+    .go_to_ideas {
+        margin-top: 3vw;
+        text-align: center;
+        @include mediaTB {
+            margin-top: 10px;
+        }
+        a {
+            font-size: 3.8vw;
+            text-decoration: underline;
+            @include mediaTB {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

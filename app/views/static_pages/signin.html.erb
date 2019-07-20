@@ -1,3 +1,14 @@
-<%= link_to 'GitHubアカウントでログイン', '/auth/github' %>
-<%= link_to 'Twitterアカウントでログイン', '/auth/twitter' %>
-<%= link_to 'Facebookアカウントでログイン', '/auth/facebook' %>
+<div class="signin">
+    <div class="signin_head">
+        <h1>ログイン / 会員登録</h1>
+        <p>以下のサービスから選択して下さい。</p>
+    </div>
+    <ul class="signin_links">
+        <li class="twitter"><%= link_to('Twitterでログイン', '/auth/twitter') %></li>
+        <li class="facebook"><%= link_to('Facebookでログイン', '/auth/facebook') %></li>
+        <li class="github"><%= link_to('GitHubでログイン', '/auth/github') %></li>
+    </ul>
+    <div class="go_to_ideas">
+        <%= link_to("サインインせずアイデアを見る", ideas_path) %>
+    </div>
+</div>

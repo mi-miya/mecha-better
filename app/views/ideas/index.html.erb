@@ -8,8 +8,8 @@
 <div class="ideas_left">
     <%= form_tag(ideas_path, :method => 'get', :id => "ideas_form") do %>
         <div class="ideas_form_input">
-            <%= text_field_tag :search, params[:search] %>
-            <%= button_tag sanitize(image_tag("search_white.png")), :type => "submit", :tag => nil, :class => "search_button" %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= button_tag(sanitize(image_tag("search_white.png")), :type => "submit", :tag => nil, :class => "search_button") %>
         </div>
         <div class="ideas_form_states">
             <%= radio_button_tag(:state, "") %>
@@ -25,7 +25,7 @@
         </div>
     <% end %>
 
-    <%= paginate @ideas %>
+    <%= paginate(@ideas) %>
 
     <ul class="idea_list">
         <% @ideas.each do |idea| %>
@@ -52,7 +52,7 @@
             </li>
         <% end %>
     </ul>
-    <%= paginate @ideas %>
+    <%= paginate(@ideas) %>
 </div>
 
 <%= render("right_column") %>
