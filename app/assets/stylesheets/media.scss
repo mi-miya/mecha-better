@@ -11,6 +11,11 @@
         @content;
     }
 }
+@mixin mediaTB2 {
+    @media screen and (min-width: 860px) {
+        @content;
+    }
+}
 // パソコン専用
 @mixin mediaPC {
     @media screen and (min-width: 1240px) {

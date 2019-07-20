@@ -16,6 +16,10 @@ html {
     font-size: 10px;
 }
 
+body {
+    background-image: image-url("background.jpg");
+}
+
 h1, h2, h3, h4, h5 {
     font-weight: normal;
 }
@@ -26,6 +30,14 @@ a {
 
 ul {
     list-style: none;
+}
+
+pre {
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -pre-wrap;     /* Opera 4-6 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    white-space: pre-wrap;      /* CSS3 */
+    word-wrap: break-word;      /* IE 5.5+ */
 }
 
 // Saferi UI リセット

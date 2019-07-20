@@ -3,6 +3,14 @@ module IdeasHelper
         idea.tag.split(",")
     end
 
+    def left_or_right(idea_user, reaction_user)
+        if(idea_user == reaction_user)
+            return "reaction_right"
+        else
+            return "reaction_left"
+        end
+    end
+
     def find_radio(checked)
         case checked
         when "" then

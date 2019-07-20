@@ -1,0 +1,54 @@
+<div class="idea_right">
+
+<h2>Mecha Better!</h2>
+<%# 色別のSTAT説明 %>
+<div class="idea_count">
+    <h3>アイデアの総数</h3>
+    <p><%= Idea.count %></p>
+    <h3>解決したアイデア数</h3>
+    <p><%= Idea.where(state: ["実現済み", "既にある"]).count %></p>
+    <h3>コメント総数</h3>
+    <p><%= IdeaReaction.count %></p>
+    <p class="idea_count_comment">どしどしアイデアを投稿して<br>みんなで盛り上がろう！</p>
+</div>
+
+<div class="idea_right_button">
+    <% if logged_in? %>
+        <%= link_to("アイデア投稿", new_idea_path, class: "new_idea") %>
+    <% else %>
+        <%= link_to("ログイン/会員登録", signin_path, class: "signin") %>
+    <% end %>
+</div>
+
+<div class="free_area">
+    <%= image_tag("https://placehold.jp/3d4070/ffffff/400x200.png?text=Dammy%0A") %>
+</div>
+
+<div class="idea_lists">
+    <h2>最新のアイデア</h2>
+    <ul class="new_idea_list">
+        <% Idea.last(7).reverse.each do |idea| %>
+            <li>
+                <%= link_to(idea.title.truncate(20), idea_path(idea)) %>
+            </li>
+        <% end %>
+    </ul>
+    <h2>人気のアイデア</h2>
+    <ul class="popular_idea_list">
+        <% Applause.all.order(count: "DESC").limit(7).each do|applause| %>
+            <li>
+                <%= link_to(applause.idea.title.truncate(20), idea_path(applause.idea)) %>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
+<div class="search">
+    <h2>タグで検索</h2>
+    <%= form_tag(ideas_path, :method => 'get', :id => "ideas_form") do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= button_tag sanitize(image_tag("search_white.png")), :type => "submit", :tag => nil, :class => "search_button" %>
+    <% end %>
+</div>
+
+</div>

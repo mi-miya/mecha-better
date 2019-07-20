@@ -1,18 +1,56 @@
-<h1><%= @idea.title %>詳細ページ</h1>
+<div class="ideas_header">
+    <h1>めっちゃベター！</h1>
+    <p>人のアイデアにコメントしたり、発展させて盛り上がろう！</p>
+</div>
 
-<%= render 'applause_form' %>
+<div class="idea_show">
 
-<ul>
-    <% @idea_reactions.each do |idea_reaction| %>
-        <li>
-            <%= idea_reaction.comment %>/
-            <%= idea_reaction.user.name %>
-        </li>
-        <br>
+<div class="idea_show_left">
+    <div class="idea_date_and_user">
+        <p><%= @idea.created_at.strftime("%Y/%d/%m %H:%M") %></p>
+        <div>
+            <%= image_tag(@idea.user.icon) %>
+            <p><%= @idea.user.name %></p>
+        </div>
+    </div>
+    <h1><%= @idea.title %></h1>
+
+    <div class="idea_cotents">
+        <pre><%= @idea.body %></pre>
+        <ul class="idea_tags">
+            <% @idea.tag.split(",").each do |tag| %>
+                <li>
+                    <%= link_to(tag, ideas_path(search: tag)) %>
+                </li>
+            <% end %>
+        </ul>
+        <div class="sns_links">
+            <%= render 'applause_form' %>
+            <div class="sns">
+                <a href="http://twitter.com/share?url=<%= idea_url(@idea) %>&text=<%= @idea.title %>&hashtags=MechaBetter" target="_blank"><%= image_tag('twitter.png') %></a>
+                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><%= image_tag('facebook.png') %></a></div>
+            </div>
+        </div>
+    </div>
+    <ul class="idea_reaction_list">
+        <% @reactions.each do |reaction| %>
+            <li class="<%= left_or_right(@idea.user, reaction.user) %>">
+                <div class="reaction_user">
+                    <%= image_tag(reaction.user.icon) %>
+                    <p><%= reaction.user.name %></p>
+                </div>
+                <pre><%= reaction.comment %></pre>
+                <p><%= reaction.created_at.strftime("%Y/%m/%d %R") %></p>
+            </li>
+        <% end %>
+    </ul>
+
+    <%= form_for(@reaction, url: idea_idea_reactions_path(@idea, @reaction)) do |f| %>
+        <%= f.text_area :comment, placeholder: "コメントを送る！", rows: 5 %>
+        <%= f.submit '送信' %>
     <% end %>
-</ul>
+</div>
 
-<%= form_for(@idea_reaction, url: idea_idea_reactions_path(@idea, @idea_reaction)) do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.submit '送信' %>
-<% end %>
+<%= render("right_column") %>
+
+</div>

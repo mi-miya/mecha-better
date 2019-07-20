@@ -1,4 +1,9 @@
-<%= form_for(current_user.applauses.build, remote: true, html: {id: "applause_form"}) do |f| %>
+<%# form_for(current_user.applauses.build, remote: true, html: {id: "applause_form"}) do |f| %>
+<%= form_for(User.first.applauses.build, remote: true, html: {id: "applause_form"}) do |f| %>
     <%= hidden_field_tag :idea_id, @idea.id %>
-    <%= f.submit @idea.applauses.sum(:count), class: "btn btn-primary" %>
+    <%# f.submit("拍手を送る", class: "btn btn-primary") %>
+    <%= button_tag type: :submit do %>
+        拍手を送る<%= image_tag "applause_icon.png" %>
+    <% end %>
+    <p><%= @idea.applauses.sum(:count) %></p>
 <% end %>
