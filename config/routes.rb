@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'privacy', to: "static_pages#privacy"
   get 'signin', to: "static_pages#signin"
   resources :ideas, only: [:index, :show, :new, :create] do
     resources :idea_reactions, :only => [:create]

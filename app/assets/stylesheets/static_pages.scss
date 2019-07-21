@@ -1,25 +1,5 @@
 @import "media.scss";
 
-header.top_header {
-    padding: 2vw 0;
-    background-color: #d1d1d1;
-    text-align: center;
-    @include mediaTB {
-        text-align: left;
-        padding: 8px 40px;
-    }
-    >h1 {
-        max-width: 1000px;
-        margin: 0 auto;
-        font-weight: bold;
-        font-size: 6.5vw;
-        color: #3f3f3f;
-        @include mediaTB {
-            font-size: 3rem;
-        }
-    }
-}
-
 .top_page {
     max-width: 1000px;
     margin: 0 auto;
@@ -329,5 +309,20 @@ header.top_header {
                 font-size: 1.5rem;
             }
         }
+    }
+}
+
+.privacy {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    >h1 {
+        text-align: center;
+    }
+    >h2 {
+        font-weight: bold;
+    }
+    >p {
+        margin: 10px 20px 20px;
     }
 }

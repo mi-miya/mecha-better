@@ -152,3 +152,26 @@ nav.pagination {
         }
     }
 }
+
+.common_footer {
+    padding-bottom: 1vw;
+    border-top: solid #cfcfcf 1px;
+    ul.footer_links {
+        padding: 4vw 0 3.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li {
+            margin: 0 1vw;
+            a {
+                color: #505050;
+                font-size: 2.8vw;
+            }
+        }
+    }
+    >p {
+        text-align: center;
+        color: #5e5e5e;
+        font-size: 2.8vw;
+    }
+}

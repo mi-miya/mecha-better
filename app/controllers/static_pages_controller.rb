@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def signin
   end
+
+  def privacy
+  end
 end
