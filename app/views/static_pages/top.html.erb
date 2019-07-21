@@ -1,0 +1,59 @@
+<header class="top_header">
+  <h1>Mecha Better</h1>
+</header>
+
+<div class="top_page">
+
+<div class="idea_bosyu">
+  <h2>あなたのアイデアで<br>『めっちゃベター』な未来を作ろう！</h2>
+  <p>MechaBetterは、気軽にアイデアを投稿しみんなで盛り上がるサービスです。</p>
+  <%= link_to("アイデアを見る", ideas_path) %>
+</div>
+
+<div class="idea_tokucho">
+  <div class="idea_tokucho_div">
+    <%= image_tag("idea_icon.png") %>
+    <h2>気軽にアイデア投稿</h2>
+    <p>日常のちょっとしたアイデアや不満を<br>気軽に投稿することができます。</p>
+  </div>
+  <div class="idea_tokucho_div">
+    <%= image_tag("applause_icon.png") %>
+    <h2>いいアイデアには拍手を！</h2>
+    <p>いいアイデアに出会ったら<br>熱い拍手を送ろう！</p>
+  </div>
+  <div class="idea_tokucho_div">
+    <%= image_tag("invention_icon.png") %>
+    <h2>誰かが実現してくれるかも？</h2>
+    <p>あなたのアイデアを<br>次の発明家の糧にしよう！</p>
+  </div>
+</div>
+
+<div class="idea_rei">
+  <h1>こんなアイデアが投稿されています！</h1>
+  <ul class="idea_rei_list">
+    <% Applause.all.order(count: "DESC").limit(3).each do|applause| %>
+      <li>
+        <%= link_to(idea_path(applause.idea)) do %>
+          <div class="idea_rei_text">
+            <h2><%= applause.idea.title.truncate(30) %></h2>
+            <pre><%= applause.idea.body.truncate(55) %></pre>
+            <div class="idea_rei_user">
+              <%= image_tag(applause.user.icon) %>
+              <p><%= applause.user.name %></p>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="idea_letsgo">
+  <h3>さあ、あなたもアイデアを投稿しましょう！</h3>
+  <div class="idea_letdgo_links">
+      <%= link_to("アイデアを見る", ideas_path, class: "ideas_link") %>
+      <%= link_to("ログイン", signin_path, class: "login_link") %>
+  </div>
+</div>
+
+</div>

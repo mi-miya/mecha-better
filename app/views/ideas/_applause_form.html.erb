@@ -3,7 +3,7 @@
     <%= hidden_field_tag :idea_id, @idea.id %>
     <%# f.submit("拍手を送る", class: "btn btn-primary") %>
     <%= button_tag type: :submit do %>
-        拍手を送る<%= image_tag "applause_icon.png" %>
+        拍手を送る<%= image_tag "applause_white_icon.png" %>
     <% end %>
     <p><%= @idea.applauses.sum(:count) %></p>
 <% end %>

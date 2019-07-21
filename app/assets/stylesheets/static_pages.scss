@@ -1,5 +1,242 @@
 @import "media.scss";
 
+header.top_header {
+    padding: 2vw 0;
+    background-color: #d1d1d1;
+    text-align: center;
+    @include mediaTB {
+        text-align: left;
+        padding: 8px 40px;
+    }
+    >h1 {
+        max-width: 1000px;
+        margin: 0 auto;
+        font-weight: bold;
+        font-size: 6.5vw;
+        color: #3f3f3f;
+        @include mediaTB {
+            font-size: 3rem;
+        }
+    }
+}
+
+.top_page {
+    max-width: 1000px;
+    margin: 0 auto;
+    .idea_bosyu {
+        padding-top: 5vw;
+        text-align: center;
+        @include mediaTB {
+            padding: 50px 0;
+        }
+        >h2 {
+            font-size: 5.5vw;
+            font-weight: bold;
+            @include mediaTB {
+                font-size: 4.6rem;
+                color: #313131;
+                line-height: 5.6rem;
+            }
+        }
+        >p {
+            width: 80%;
+            margin: 4vw auto;
+            font-size: 4vw;
+            @include mediaTB {
+                width: auto;
+                margin: 30px 0;
+                font-size: 1.6rem;
+            }
+        }
+        >a {
+            padding: 1vw 5vw;
+            font-size: 4vw;
+            border-radius: 5vw;
+            display: inline-block;
+            background-color: #3593ff;
+            color: #ffffff;
+            font-weight: bold;
+            @include mediaTB {
+                padding: 9px 50px;
+                font-size: 1.4rem;
+                border-radius: 2rem;
+            }
+        }
+    }
+    .idea_tokucho {
+        text-align: center;
+        @include mediaTB {
+            padding: 50px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .idea_tokucho_div {
+            width: 90vw;
+            margin: 10vw auto;
+            @include mediaTB {
+                width: 300px;
+                margin: 30px 0;
+            }
+            >img {
+                width: 25%;
+                @include mediaTB {
+                    width: 30%;
+                }
+            }
+            >h2 {
+                font-size: 3ve;
+                font-weight: bold;
+                @include mediaTB {
+                    font-size: 2.2rem;
+                }
+            }
+            >p {
+                font-size: 3vw;
+                @include mediaTB {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+    .idea_rei {
+        text-align: center;
+        @include mediaTB {
+            padding: 50px 0;
+        }
+        >h1 {
+            font-size: 4.6vw;
+            font-weight: bold;
+            @include mediaTB {
+                font-size: 3rem;
+            }
+        }
+        .idea_rei_list {
+            @include mediaTB {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+            >li {
+                width: 85%;
+                margin: 5vw auto;
+                border: 1px solid #999999;
+                background-color: #ffffff;
+                @include mediaTB {
+                    width: 300px;
+                    margin: 20px auto;
+                }
+                >a {
+                    padding: 5vw 0;
+                    display: block;
+                    @include mediaTB {
+                        padding: 10px;
+                    }
+                    .idea_rei_text {
+                        width: 85%;
+                        margin: 0 auto;
+                        >h2 {
+                            font-size: 4.8vw;
+                            font-weight: bold;
+                            @include mediaTB {
+                                font-size: 2rem;
+                            }
+                        }
+                        >pre {
+                            margin: 2vw 0;
+                            padding: 2vw 0;
+                            font-size: 3.8vw;
+                            line-height: 4.7vw;
+                            text-align: left;
+                            border-width: 1px 0 1px 0;
+                            border-style: solid;
+                            border-color: #999999;
+                            @include mediaTB {
+                                margin: 5px 0;
+                                padding: 5px 0;
+                                font-size: 1.6rem;
+                                line-height: 2rem;
+                            }
+                        }
+                        .idea_rei_user {
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                            >img {
+                                width: 8vw;
+                                height: 8vw;
+                                margin-right: 0.5vw;
+                                border-radius: 4vw;
+                                @include mediaTB {
+                                    width: 15px;
+                                    height: 15px;
+                                    margin-right: 5px;
+                                    border-radius: 7.5px;
+                                }
+                            }
+                            >p {
+                                display: inline-block;
+                                font-size: 4.5vw;
+                                @include mediaTB {
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .idea_letsgo {
+        padding: 8vw 0;
+        text-align: center;
+        @include mediaTB {
+            padding: 40px 0;
+        }
+        >h3 {
+            font-weight: bold;
+            font-size: 4vw;
+            color: #1f1f1f;
+            @include mediaTB {
+                font-size: 2.5rem;
+            }
+        }
+        .idea_letdgo_links {
+            padding: 5vw 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include mediaTB {
+                padding: 30px 0;
+            }
+            a {
+                width: 45%;
+                margin: 1vw 0;
+                padding: 1vw 0;
+                font-size: 4vw;
+                border-radius: 5vw;
+                color: #ffffff;
+                font-weight: bold;
+                @include mediaTB {
+                    width: 200px;
+                    margin: 5px 0;
+                    padding: 9px 50px;
+                    font-size: 1.4rem;
+                    border-radius: 2rem;
+                }
+                &.ideas_link {
+                    background-color: #3593ff;
+                }
+                &.login_link {
+                    background-color: #44d350;
+                }
+            }
+        }
+    }
+}
+
 .signin {
     padding-top: 20vw;
     @include mediaTB {
