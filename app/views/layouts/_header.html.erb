@@ -1,0 +1,33 @@
+<header class="common_header">
+    <div class="header_inner">
+        <h1><%= link_to("MechaBetter", ideas_path) %></h1>
+        <ul class="header_right">
+            <% if logged_in? %>
+                <li>
+                    <%= link_to("アイデア投稿", new_idea_path, class: "pc_only") %>
+                    <%= link_to(new_idea_path, class: "sp_only") do %>
+                        <%= image_tag("plus.png") %>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to("ログアウト", logout_path, class: "pc_only") %>
+                    <%= link_to(logout_path, class: "sp_only") do %>
+                        <%= image_tag("logout.png") %>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to("#") do %>
+                        <%= image_tag(current_user.icon, class: "user_icon") %>
+                    <% end %>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to("ログイン", signin_path, class: "pc_only") %>
+                    <%= link_to(signin_path) do %>
+                        <%= image_tag("login.png", class: "sp_only signin_path") %>
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</header>

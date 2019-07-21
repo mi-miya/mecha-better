@@ -44,6 +44,19 @@ pre {
     word-wrap: break-word;      /* IE 5.5+ */
 }
 
+.sp_only {
+    @include mediaTB {
+        display: none;
+    }
+}
+
+.pc_only {
+    display: none;
+    @include mediaTB {
+        display: inline-block;
+    }
+}
+
 // Saferi UI リセット
 input, textarea {
     box-sizing: border-box;
@@ -75,6 +88,66 @@ nav.pagination {
             font-size: 7vw;
             @include mediaTB {
                 font-size: 2.4rem;
+            }
+        }
+    }
+}
+
+// Common Header
+.common_header {
+    background-color: #272727;
+    border-bottom: #1b1b1b 1px solid;
+    .header_inner {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5vw 2vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        @include mediaTB {
+            padding: 7px 0;
+        }
+        >h1 {
+            >a {
+                font-weight: bold;
+                font-size: 8vw;
+                color: #ffffff;
+                @include mediaTB {
+                    font-size: 2rem;
+                }
+            }
+        }
+        ul.header_right {
+            display: flex;
+            align-items: bottom;
+            @include mediaTB {
+                align-items: center;
+            }
+            >li {
+                margin: 0 1vw;
+                @include mediaTB {
+                    margin: 0 8px;
+                }
+                >a {
+                    width: 100%;
+                    height: auto;
+                    color: #ffffff;
+                    img {
+                        width: 9vw;
+                        height: 9vw;
+                        @include mediaTB {
+                            width: 25px;
+                            height: 25px;
+                        }
+                        &.user_icon {
+                            border-radius: 4.5vw;
+                            @include mediaTB {
+                                border-radius: 12.5px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -170,10 +170,10 @@ header.top_header {
                                 margin-right: 0.5vw;
                                 border-radius: 4vw;
                                 @include mediaTB {
-                                    width: 15px;
-                                    height: 15px;
+                                    width: 20px;
+                                    height: 20px;
                                     margin-right: 5px;
-                                    border-radius: 7.5px;
+                                    border-radius: 10px;
                                 }
                             }
                             >p {
