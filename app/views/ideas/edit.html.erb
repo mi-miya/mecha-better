@@ -1,0 +1,37 @@
+<%= render("layouts/header") %>
+
+<div class="idea_edit">
+
+<h1>アイデアの編集</h1>
+
+<%= form_for(@idea) do |f| %>
+    <div class="form_input form_field">
+        <%= f.label(:title, "アイデア (変更不可)") %>
+        <%= f.text_field(:title, placeholder: "例）アイデアを共有出来るサービスが欲しい！", disabled: "disabled") %>
+    </div>
+
+    <div class="form_input form_field">
+        <%= f.label(:tag, "タグ") %>
+        <%= f.text_field(:tag, placeholder: "例）アプリ,サービス,ウェブ") %>
+        <p class="supplement">&#x203B;タグはカンマ "," で区切ってください。</p>
+        <p class="supplement">&#x203B;スペースや空白文字は除外されます。</p>
+    </div>
+
+    <div class="form_input form_area">
+        <%= f.label(:body, "詳細 (追記のみ可能)") %>
+        <pre class="add_body_area"><%= @idea.body %></pre>
+        <%= f.text_area(:body, value: "", placeholder: "追記は、マークや追記日付を加えるなど、分かりやすくしてください。\n一度追記した文言は変更することが出来ません!", rows: 4) %>
+    </div>
+
+    <div class="form_select form_input">
+        <%= f.label(:state, "状態設定") %>
+        <%= f.select(:state, options_for_select([["未実現"], ["対応中"], ["実現済み"], ["既にある"]], :selected => @idea.state)) %>
+    </div>
+
+    <div class="form_button">
+        <%= f.submit('更新') %>
+        <%= link_to('アイデア一覧へ', ideas_path) %>
+    </div>
+<% end %>
+
+</div>

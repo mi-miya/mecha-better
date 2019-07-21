@@ -8,6 +8,19 @@
 <div class="idea_show">
 
 <div class="idea_show_left">
+    <div class="state_comment <%= find_radio(@idea.state) %>">
+        <% state_comment = get_state_comment(@idea.state) %>
+        <h2><%= state_comment[:head] %></h2>
+        <p><%= state_comment[:text] %></p>
+        <% if current_user == @idea.user %>
+            <br>
+            <p class="state_edit">
+                <%= @idea.user.name %>さんはステータスを変更することが出来ます。<br>
+                <%= link_to("変更はこちらから", edit_idea_path(@idea)) %>
+            </p>
+        <% end %>
+    </div>
+    
     <div class="idea_date_and_user">
         <p><%= @idea.created_at.strftime("%Y/%d/%m %H:%M") %></p>
         <div>

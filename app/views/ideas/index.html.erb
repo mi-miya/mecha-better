@@ -31,7 +31,7 @@
 
     <ul class="idea_list">
         <% @ideas.each do |idea| %>
-            <li class="idea_content">
+            <li class="idea_content <%= find_radio(idea.state) %>">
                 <div class="idea_applause">
                     <p><%= idea.applauses.sum(:count) %></p>
                 </div>

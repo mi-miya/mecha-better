@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
-  before_action :authenticate, only: [:create, :new]
+  before_action :authenticate, only: [:create, :new, :edit, :update]
+  before_action :correct_idea, only: [:edit, :update]
 
   def index
     ideas = []
@@ -55,10 +56,30 @@ class IdeasController < ApplicationController
     @reaction = IdeaReaction.new
   end
 
+  def edit
+  end
+
+  def update
+    new_body = "#{@idea.body}\n#{idea_params[:body]}"
+    @idea.body = new_body
+    @idea.state = idea_params[:state]
+    @idea.tag = idea_params[:tag]
+    if @idea.save
+      redirect_to(@idea)
+    else
+      render('edit')
+    end
+  end
+
   private
 
   def idea_params
     params.require(:idea).permit(:title, :body, :user_id, :state, :tag)
+  end
+
+  def correct_idea
+    @idea = Idea.find(params[:id])
+    redirect_to(ideas_url) unless @idea.user == current_user
   end
 
   def params_to_state(word)

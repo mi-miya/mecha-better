@@ -1,14 +1,28 @@
 @import "media.scss";
 
-//idea list 背景色
-$idea_color: #ececec; 
-// borderその他の色
 $idea_border_color: #86ce00;
 $idea_shadow_color: #c0c0c0;
 $right_header_color: #353535;
 
+
+.state_mijitugen {
+    border: 1px solid #ff0000;
+    background-color: #ffeaea;
+}
+.state_jitugenzumi {
+    border: 1px solid #0059ff;
+    background-color: #e4f3ff;
+}
+.state_taioutyuu {
+    border: 1px solid #e9e500;
+    background-color: #fffedf;
+}
+.state_sudeniaru {
+    border: 1px solid #00e61f;
+    background-color: #ecffef;
+}
+
 .idea_header {
-    margin-bottom: 8vw;
     padding: 18vw 0;
     text-align: center;
     background-image: image-url("top.jpg");
@@ -16,7 +30,6 @@ $right_header_color: #353535;
     background-size: cover;
     @include mediaTB {
         padding: 120px 0;
-        margin-bottom: 40px;
     }
     h1 {
         color: #ffffff;
@@ -52,6 +65,32 @@ $right_header_color: #353535;
         font-size: 3rem;
         background-color: #dddddd;
         color: #585858;
+    }
+    .color_description {
+        padding: 20px 0 20px 20px;
+        >p {
+            width: 49.5%;
+            display: inline-block;
+            font-size: 1.8rem;
+            >span {
+                display: inline-block;
+                border-style: solid;
+                border-width: 7px;
+                box-sizing: border-box;
+                &.red {
+                    border-color: #ff0000;
+                }
+                &.yellow {
+                    border-color: #e9e500;
+                }
+                &.blue {
+                    border-color: #0059ff;
+                }
+                &.green {
+                    border-color: #00e61f;
+                }
+            }
+        }
     }
     .idea_count {
         text-align: center;
@@ -168,8 +207,12 @@ $right_header_color: #353535;
         display: flex;
     }
     .ideas_left {
+        margin-top: 8vw;
         flex-grow: 10;
         overflow: hidden;
+        @include mediaTB {
+            margin-top: 40px;
+        }
         form#ideas_form {
             width: 80vw;
             margin: 0 auto 6vw;
@@ -254,7 +297,6 @@ $right_header_color: #353535;
                 margin-bottom: 10vw;
                 padding: 3vw;
                 position: relative;
-                background-color: $idea_color;
                 border-radius: 2vw;
                 box-shadow: 1.4vw 1.6vw 1.6vw -1vw $idea_shadow_color;
                 @include mediaTB {
@@ -412,90 +454,132 @@ $right_header_color: #353535;
             }
         }
     }
-    form.new_idea {
-        width: 85vw;
-        margin: 0 auto;
-        padding: 10vw 0;
+}
+
+.idea_edit {
+    padding: 14vw 0;
+    @include mediaTB {
+        padding: 120px 0;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+form.new_idea, form.edit_idea {
+    width: 85vw;
+    margin: 0 auto;
+    padding: 10vw 0;
+    @include mediaTB {
+        width: 100%;
+        max-width: 800px;
+        padding: 50px 0;
+    }
+    .form_input {
+        margin-bottom: 4vw;
+        display: flex;
+        flex-direction: column;
         @include mediaTB {
-            width: 100%;
-            max-width: 800px;
-            padding: 50px 0;
+            margin-bottom: 30px;
         }
-        .form_input {
-            margin-bottom: 4vw;
-            display: flex;
-            flex-direction: column;
+        label {
+            font-size: 4.8vw;
             @include mediaTB {
-                margin-bottom: 30px;
+                font-size: 2rem;
             }
-            label {
-                font-size: 4.8vw;
-                @include mediaTB {
-                    font-size: 2rem;
-                }
+        }
+        >input, >textarea {
+            padding: 1.8vw;
+            font-size: 3.8vw;
+            line-height: 4.5vw;
+            border-color: #b3b3b3;
+            transition-duration: 100ms;
+            @include mediaTB {
+                padding: 6px 10px;
+                font-size: 1.5rem;
+                line-height: 2.4rem;
             }
-            input, textarea {
-                padding: 1.8vw;
-                font-size: 3.8vw;
-                line-height: 4.5vw;
-                border-color: #b3b3b3;
-                transition-duration: 100ms;
+            &:focus {
+                outline: 0;
+                box-shadow:0 0 2vw 0 #9ee091;
                 @include mediaTB {
-                    padding: 6px 10px;
-                    font-size: 1.5rem;
-                    line-height: 2.4rem;
-                }
-                &:focus {
-                    outline: 0;
-                    box-shadow:0 0 2vw 0 #9ee091;
-                    @include mediaTB {
-                        box-shadow:0 0 1rem 0 #9ee091;
-                    }
-                }
-            }
-            .supplement {
-                margin-left: 4vw;
-                color: #636363;
-                font-size: 3.6vw;
-                line-height: 4.5vw;
-                @include mediaTB {
-                    margin-left: 16px;
-                    font-size: 1.4rem;
-                    line-height: 1.8rem;
+                    box-shadow:0 0 1rem 0 #9ee091;
                 }
             }
         }
-        .form_button {
-            margin-top: 4vw;
-            display: flex;
-            text-align: center;
-            flex-direction: column;
-            justify-content: center;
+        .add_body_area {
+            padding: 1.8vw;
+            font-size: 3.8vw;
+            line-height: 4.5vw;
+            color: #494949;
+            background-color: #ebebeb;
+            border: solid 1px #b3b3b3;
+            border-bottom: none;
             @include mediaTB {
-                margin-top: 15px;
+                padding: 6px 10px;
+                font-size: 1.5rem;
+                line-height: 2.4rem;
             }
-            input {
-                width: 60%;
-                margin: 0 auto 2vw;
-                padding: 1vw 0;
-                font-size: 4.5vw;
-                color: $idea_border_color;
-                border: 1px solid $idea_border_color;
+        }
+        >select {
+            margin: 2vw 0;
+            font-size: 4vw;
+            @include mediaTB {
+                width: 120px;
+                margin: 5px 0;
+                font-size: 1.5rem;
+                line-height: 2.4rem;
+            }
+            &:focus {
+                outline: 0;
+                box-shadow:0 0 2vw 0 #9ee091;
                 @include mediaTB {
-                    width: 30%;
-                    margin: 0 auto 8px;
-                    padding: 10px 0;
-                    font-size: 1.8rem;
+                    box-shadow:0 0 1rem 0 #9ee091;
                 }
             }
-            a {
-                margin: 0 auto;
-                display: inline;
-                font-size: 4vw;
-                color: #3f3f3f;
-                @include mediaTB {
-                    font-size: 1.6rem;
-                }
+        }
+        .supplement {
+            margin-left: 4vw;
+            color: #636363;
+            font-size: 3.6vw;
+            line-height: 4.5vw;
+            @include mediaTB {
+                margin-left: 16px;
+                font-size: 1.4rem;
+                line-height: 1.8rem;
+            }
+        }
+    }
+    .form_button {
+        margin-top: 4vw;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        @include mediaTB {
+            margin-top: 15px;
+        }
+        input {
+            width: 60%;
+            margin: 0 auto 2vw;
+            padding: 1vw 0;
+            font-size: 4.5vw;
+            color: $idea_border_color;
+            border: 1px solid $idea_border_color;
+            @include mediaTB {
+                width: 30%;
+                margin: 0 auto 8px;
+                padding: 10px 0;
+                font-size: 1.8rem;
+            }
+        }
+        a {
+            margin: 0 auto;
+            display: inline;
+            font-size: 4vw;
+            color: #3f3f3f;
+            @include mediaTB {
+                font-size: 1.6rem;
             }
         }
     }
@@ -509,11 +593,36 @@ $right_header_color: #353535;
     }
     .idea_show_left {
         width: 87vw;
-        margin: 0 auto;
+        margin: 8vw auto 0;
+        flex-grow: 10;
         @include mediaTB {
             width: 100%;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto 0;
+        }
+        .state_comment {
+            margin: 0 -2vw 8vw;
+            padding: 2vw 0 2.5vw;
+            border-radius: 3vw;
+            text-align: center;
+            @include mediaTB {
+                width: 50%;
+                margin: 0 auto 20px;
+                padding: 10px 5px;
+                border-radius: 15px;
+            }
+            >h2 {
+                font-size: 4.2vw;
+                @include mediaTB {
+                    font-size: 1.8rem;
+                }
+            }
+            >p {
+                font-size: 3vw;
+                @include mediaTB {
+                    font-size: 1.4rem;
+                }
+            }
         }
         .idea_date_and_user {
             margin: 3vw 0 6vw;
@@ -615,7 +724,10 @@ $right_header_color: #353535;
             .sns_links {
                 display: flex;
                 justify-content: space-between;
-                // Applause
+                @include mediaTB {
+                    width: 80%;
+                    margin: 0 auto;
+                }
                 form#applause_form {
                     display: flex;
                     align-items: center;
