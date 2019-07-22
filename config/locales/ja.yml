@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      idea: アイデア
+    attributes:
+      idea:
+        title: アイデアの見出し
+        body: アイデアの詳細
+        state: アイデアの状態

@@ -107,6 +107,7 @@ nav.pagination {
         align-items: flex-end;
         @include mediaTB {
             padding: 7px 0;
+            align-items: center;
         }
         >h1 {
             >a {
@@ -156,16 +157,28 @@ nav.pagination {
 .common_footer {
     padding-bottom: 1vw;
     border-top: solid #cfcfcf 1px;
+    @include mediaTB {
+        padding-bottom: 15px;
+    }
     ul.footer_links {
         padding: 4vw 0 3.5vw;
         display: flex;
         justify-content: center;
         align-items: center;
+        @include mediaTB {
+            padding: 20px 0 10px;
+        }
         li {
             margin: 0 1vw;
+            @include mediaTB {
+                margin: 0 5px;
+            }
             a {
                 color: #505050;
-                font-size: 2.8sdvw;
+                font-size: 2.8vw;
+                @include mediaTB {
+                    font-size: 1.2rem;
+                }
             }
         }
     }
@@ -173,5 +186,8 @@ nav.pagination {
         text-align: center;
         color: #5e5e5e;
         font-size: 2.8vw;
+        @include mediaTB {
+            font-size: 1.2rem;
+        }
     }
 }

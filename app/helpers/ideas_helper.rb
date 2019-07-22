@@ -38,4 +38,8 @@ module IdeasHelper
             {head: "このアイデアは既に実現済みです",text: "新しいアイデアを投稿してみましょう！"}
         end
     end
+
+    def tag_list
+        return ["ウェブ", "サービス", "アプリ", "不満", "製品", "音楽"]
+    end
 end

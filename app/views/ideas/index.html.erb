@@ -6,61 +6,65 @@
 </div>
 
 <div class="ideas">
-
-<div class="ideas_left">
-    <%= form_tag(ideas_path, :method => 'get', :id => "ideas_form") do %>
-        <div class="ideas_form_input">
-            <%= text_field_tag(:search, params[:search]) %>
-            <%= button_tag(sanitize(image_tag("search_white.png")), :type => "submit", :tag => nil, :class => "search_button") %>
-        </div>
-        <div class="ideas_form_states">
-            <%= radio_button_tag(:state, "") %>
-            <%= label_tag(:state_, "全て") %>
-            <%= radio_button_tag(:state, "mijitugen") %>
-            <%= label_tag(:state_mijitugen, "未実現")  %>
-            <%= radio_button_tag(:state, "jitugenzumi") %>
-            <%= label_tag(:state_jitugenzumi, "実現済み") %>
-            <%= radio_button_tag(:state, "taioutyuu") %>
-            <%= label_tag(:state_taioutyuu, "対応中") %>
-            <%= radio_button_tag(:state, "sudeniaru") %>
-            <%= label_tag(:state_sudeniaru, "既にある") %>
-        </div>
-    <% end %>
-
-    <%= paginate(@ideas) %>
-
-    <ul class="idea_list">
-        <% @ideas.each do |idea| %>
-            <li class="idea_content <%= find_radio(idea.state) %>">
-                <div class="idea_applause">
-                    <p><%= idea.applauses.sum(:count) %></p>
-                </div>
-                <h2><%= link_to(idea.title.truncate(40), idea) %></h2>
-                <pre><%= idea.body.truncate(100) %></pre>
-                <div class="idea_tags">
-                    <% unless idea.tag.nil? %>
-                        <% tags(idea)[0..6].each do |tag| %>
-                            <%= link_to(tag, ideas_path(search: tag)) %>
-                        <% end %>
-                    <% end %>
-                </div>
-                <div class="idea_content_bottom">
-                    <div>
-                        <%= image_tag(idea.user.icon) %>
-                        <p><%= idea.user.name %></p>
-                    </div>
-                    <p><%= idea.created_at.strftime("%Y/%m/%d %H:%M") %></p>
-                </div>
-            </li>
+    <div class="ideas_left">
+        <%= form_tag(ideas_path, :method => 'get', :id => "ideas_form") do %>
+            <div class="ideas_form_input">
+                <%= text_field_tag(:search, params[:search]) %>
+                <%= button_tag(sanitize(image_tag("search_white.png")), :type => "submit", :tag => nil, :class => "search_button") %>
+            </div>
+            <div class="ideas_form_states">
+                <%= radio_button_tag(:state, "") %>
+                <%= label_tag(:state_, "全て") %>
+                <%= radio_button_tag(:state, "mijitugen") %>
+                <%= label_tag(:state_mijitugen, "未実現")  %>
+                <%= radio_button_tag(:state, "jitugenzumi") %>
+                <%= label_tag(:state_jitugenzumi, "実現済み") %>
+                <%= radio_button_tag(:state, "taioutyuu") %>
+                <%= label_tag(:state_taioutyuu, "対応中") %>
+                <%= radio_button_tag(:state, "sudeniaru") %>
+                <%= label_tag(:state_sudeniaru, "既にある") %>
+            </div>
         <% end %>
-    </ul>
-    <%= paginate(@ideas) %>
+        <%= paginate(@ideas) %>
+        <ul class="idea_list">
+            <% @ideas.each do |idea| %>
+                <li class="idea_content <%= find_radio(idea.state) %>">
+                    <div class="idea_applause">
+                        <p><%= idea.applauses.sum(:count) %></p>
+                    </div>
+                    <h2><%= link_to(idea.title.truncate(40), idea) %></h2>
+                    <pre><%= idea.body.truncate(100) %></pre>
+                    <ul class="idea_tags">
+                        <% unless idea.tag.nil? %>
+                            <% tags(idea)[0..10].each do |tag| %>
+                                <li>
+                                    <%= link_to(tag, ideas_path(search: tag)) %>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                    <div class="idea_content_bottom">
+                        <div class="idea_content_bottom_user">
+                            <% if idea.user.blank? %>
+                                <%= image_tag("dammy.png") %>
+                                <p>削除されたユーザー</p>
+                            <% else %>
+                                <%= image_tag(idea.user.icon) %>
+                                <p><%= idea.user.name %></p>
+                            <% end %>
+                        </div>
+                        <p class="idea_content_bottom_time">
+                            <%= idea.created_at.strftime("%Y/%m/%d %H:%M") %>
+                        </p>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+        <%= paginate(@ideas) %>
+    </div>
+    <%= render("right_column") %>
 </div>
-
-<%= render("right_column") %>
-
-</div>
-
+<%= render("layouts/footer") %>
 
 <script type="text/javascript">
     state = "<%= find_radio(@state) %>";

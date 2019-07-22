@@ -7,6 +7,8 @@
 </div>
 
 <%= form_for(@idea) do |f| %>
+    <%= render("ideas/error") %>
+
     <div class="form_input form_field">
         <%= f.label :title, "アイデア" %>
         <%= f.text_field :title, placeholder: "例）アイデアを共有出来るサービスが欲しい！" %>
@@ -16,7 +18,18 @@
         <%= f.label :tag, "タグ" %>
         <%= f.text_field :tag, placeholder: "例）アプリ,サービス,ウェブ" %>
         <p class="supplement">&#x203B;タグはカンマ "," で区切ってください。</p>
-        <p class="supplement">&#x203B;スペースや空白文字は除外されます。</p>
+        <p class="supplement">&#x203B;スペースや空白文字は無視されます。</p>
+    </div>
+
+    <div class="form_tag_list">
+        <p>人気のタグ</p>
+        <ul class="form_tags">
+            <% tag_list.each do |tag| %>
+                <li>
+                    <p class="tag_click"><%= tag %></p>
+                </li>
+            <% end %>
+        </ul>
     </div>
 
     <div class="form_input form_area">
@@ -31,3 +44,9 @@
 <% end %>
 
 </div>
+
+<script type="text/javascript">
+    $("p.tag_click").click(function(event){
+        $("input#idea_tag").val(`${$("input#idea_tag").val()},${$(event.target).text()}`);
+    })
+</script>

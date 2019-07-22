@@ -44,9 +44,9 @@ class IdeasController < ApplicationController
     @idea.state = "未実現"
     @idea.user = current_user
     if @idea.save
-      redirect_to @idea
+      redirect_to(@idea)
     else
-      render ideas_path
+      render(new_idea_path)
     end
   end
 

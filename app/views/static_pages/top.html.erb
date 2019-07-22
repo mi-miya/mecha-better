@@ -36,8 +36,13 @@
             <h2><%= applause.idea.title.truncate(30) %></h2>
             <pre><%= applause.idea.body.truncate(55) %></pre>
             <div class="idea_rei_user">
-              <%= image_tag(applause.user.icon) %>
-              <p><%= applause.user.name %></p>
+              <% if applause.idea.user.blank? %>
+                <%= image_tag("dammy.png") %>
+                <p>削除されたユーザー</p>
+              <% else %>
+                <%= image_tag(applause.idea.user.icon) %>
+                <p><%= applause.idea.user.name %></p>
+              <% end %>
             </div>
           </div>
         <% end %>

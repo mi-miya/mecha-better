@@ -22,6 +22,37 @@ $right_header_color: #353535;
     background-color: #ecffef;
 }
 
+.error_area {
+    >ul {
+        margin-bottom: 5vw;
+        padding: 2vw 4vw;
+        border: 1px solid #ff0000;
+        background-color: #ffeaea;
+        @include mediaTB {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        >li {
+            font-size: 3vw;
+            color: #ff0000;
+            @include mediaTB {
+                font-size: 1.4rem;
+            }
+            &::before {
+                content: "・";
+            }
+            >p {
+                font-size: 3vw;
+                color: #ff0000;
+                display: inline-block;
+                @include mediaTB {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
 .idea_header {
     padding: 18vw 0;
     text-align: center;
@@ -380,16 +411,21 @@ $right_header_color: #353535;
                     }
                 }
                 .idea_tags {
-                    width: 70%;
-                    margin: 0 auto;
-                    text-align: center;
-                    a {
-                        margin: 0 0.5vw;
-                        font-size: 4vw;
-                        color: #646464;
-                        @include mediaTB {
-                            margin: 5px;
-                            font-size: 1.2rem;
+                    width: 90%;
+                    margin: 0 auto 4vw;
+                    @include mediaTB {
+                        margin-bottom: 5px;
+                    }
+                    li {
+                        display: inline-block;
+                        a {
+                            margin: 0 0.5vw;
+                            font-size: 4vw;
+                            color: #646464;
+                            @include mediaTB {
+                                margin: 5px;
+                                font-size: 1.2rem;
+                            }
                         }
                     }
                 }
@@ -406,10 +442,10 @@ $right_header_color: #353535;
                         padding: 0 15px;
                         font-size: 1.5rem;
                     }
-                    div {
+                    .idea_content_bottom_user {
                         display: flex;
                         align-items: center;
-                        img {
+                        >img {
                             width: 7vw;
                             height: 7vw;
                             margin-right: 1vw;
@@ -421,11 +457,17 @@ $right_header_color: #353535;
                                 border-radius: 15px;
                             }
                         }
-                        p {
-                            line-height: 7vw;
+                        >p {
+                            font-size: 4vw;
                             @include mediaTB {
-                                line-height: 30px;
+                                font-size: 1.2rem;
                             }
+                        }
+                    }
+                    p.idea_content_bottom_time {
+                        font-size: 4vw;
+                        @include mediaTB {
+                            font-size: 1.2rem;
                         }
                     }
                 }
@@ -475,7 +517,7 @@ form.new_idea, form.edit_idea {
         max-width: 800px;
         padding: 50px 0;
     }
-    .form_input {
+    .form_input, .field_with_errors {
         margin-bottom: 4vw;
         display: flex;
         flex-direction: column;
@@ -483,6 +525,7 @@ form.new_idea, form.edit_idea {
             margin-bottom: 30px;
         }
         label {
+            margin: 0;
             font-size: 4.8vw;
             @include mediaTB {
                 font-size: 2rem;
@@ -547,6 +590,42 @@ form.new_idea, form.edit_idea {
                 margin-left: 16px;
                 font-size: 1.4rem;
                 line-height: 1.8rem;
+            }
+        }
+    }
+    .form_tag_list {
+        margin: -3vw 0 8vw;
+        @include mediaTB {
+            margin: -10px 0 18px;
+        }
+        >p {
+            color: #444444;
+            font-size: 4vw;
+            @include mediaTB {
+                font-size: 1.8rem;
+            }
+        }
+        ul.form_tags {
+            >li {
+                margin: 0 0.5vw 1.5vw;
+                border-radius: 3vw;
+                display: inline-block;
+                background-color: #71d61f;
+                @include mediaTB {
+                    margin: 0 4px 10px;
+                    padding: 2px 4px;
+
+                }
+                p.tag_click {
+                    padding: 0.5vw 3vw;
+                    font-size: 3.5vw;
+                    color: #ffffff;
+                    cursor: pointer;
+                    @include mediaTB {
+                        padding: 2px 8px;
+                        font-size: 1.4rem;
+                    }
+                }
             }
         }
     }
@@ -694,20 +773,21 @@ form.new_idea, form.edit_idea {
                     line-height: 2rem;
                 }
             }
-            .idea_tags {
+            ul.idea_tags {
                 margin: 3vw 0 5vw;
-                display: flex;
+                padding: 0 2vw;
                 @include mediaTB {
                     margin: 0;
+                    padding: 0 10px;
                 }
                 li {
-                    margin: 0 1vw;
+                    margin: 0 1vw 3vw 0;
+                    display: inline-block;
                     @include mediaTB {
-                        margin: 0;
+                        margin: 0 3px 15px 0;
                     }
                     a {
                         padding: 1vw 2.5vw;
-                        font-size: 4vw;
                         line-height: 4vw;
                         border-radius: 3vw;
                         color: #ffffff;
@@ -715,7 +795,6 @@ form.new_idea, form.edit_idea {
                         @include mediaTB {
                             padding: 5px 15px;
                             font-size: 1.5rem;
-                            line-height: auto;
                             border-radius: 25px;
                         }
                     }

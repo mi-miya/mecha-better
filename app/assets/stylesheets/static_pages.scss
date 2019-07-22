@@ -218,27 +218,27 @@
 }
 
 .signin {
-    padding-top: 20vw;
+    padding: 25vw 0 30vw;
     @include mediaTB {
-        padding-top: 65px;
+        padding: 120px 0 260px;
     }
     .signin_head {
         margin-bottom: 8vw;
         text-align: center;
         @include mediaTB {
-            margin-bottom: 25px;
+            margin-bottom: 40px;
         }
         h1 {
             font-size: 5vw;
             @include mediaTB {
-                margin-bottom: 5px;
-                font-size: 2.4rem;
+                margin-bottom: 10px;
+                font-size: 2.6rem;
             }
         }
         p {
             font-size: 3.5vw;
             @include mediaTB {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
         }
     }
@@ -259,7 +259,7 @@
             }
             @include mediaTB {
                 width: 300px;
-                margin: 10px auto 12px;
+                margin: 10px auto 18px;
                 padding: 5px 0;
                 border-radius: 20px;
                 box-shadow:0 3.5px 3.5px -3px #0000008e;

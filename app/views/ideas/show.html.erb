@@ -6,66 +6,76 @@
 </div>
 
 <div class="idea_show">
-
-<div class="idea_show_left">
-    <div class="state_comment <%= find_radio(@idea.state) %>">
-        <% state_comment = get_state_comment(@idea.state) %>
-        <h2><%= state_comment[:head] %></h2>
-        <p><%= state_comment[:text] %></p>
-        <% if current_user == @idea.user %>
-            <br>
-            <p class="state_edit">
-                <%= @idea.user.name %>さんはステータスを変更することが出来ます。<br>
-                <%= link_to("変更はこちらから", edit_idea_path(@idea)) %>
-            </p>
-        <% end %>
-    </div>
-    
-    <div class="idea_date_and_user">
-        <p><%= @idea.created_at.strftime("%Y/%d/%m %H:%M") %></p>
-        <div>
-            <%= image_tag(@idea.user.icon) %>
-            <p><%= @idea.user.name %></p>
+    <div class="idea_show_left">
+        <div class="state_comment <%= find_radio(@idea.state) %>">
+            <% state_comment = get_state_comment(@idea.state) %>
+            <h2><%= state_comment[:head] %></h2>
+            <p><%= state_comment[:text] %></p>
+            <% if current_user == @idea.user && !@idea.user.blank? %>
+                <br>
+                <p class="state_edit">
+                    <%= @idea.user.name %>さんはステータスを変更することが出来ます。<br>
+                    <%= link_to("変更はこちらから", edit_idea_path(@idea), style: "text-decoration:underline;") %>
+                </p>
+            <% end %>
         </div>
-    </div>
-    <h1><%= @idea.title %></h1>
+        
+        <div class="idea_date_and_user">
+            <p><%= @idea.created_at.strftime("%Y/%d/%m %H:%M") %></p>
+            <div>
+                <% if @idea.user.blank? %>
+                    <%= image_tag("dammy.png") %>
+                    <p>削除されたユーザー</p>
+                <% else %>
+                    <%= image_tag(@idea.user.icon) %>
+                    <p><%= @idea.user.name %></p>
+                <% end %>
+            </div>
+        </div>
+        <h1><%= @idea.title %></h1>
 
-    <div class="idea_cotents">
-        <pre><%= @idea.body %></pre>
-        <ul class="idea_tags">
-            <% @idea.tag.split(",").each do |tag| %>
-                <li>
-                    <%= link_to(tag, ideas_path(search: tag)) %>
+        <div class="idea_cotents">
+            <pre><%= @idea.body %></pre>
+            <ul class="idea_tags">
+                <% @idea.tag.split(",").each do |tag| %>
+                    <li>
+                        <%= link_to(tag, ideas_path(search: tag)) %>
+                    </li>
+                <% end %>
+            </ul>
+            <div class="sns_links">
+                <%= render 'applause_form' %>
+                <div class="sns">
+                    <a href="http://twitter.com/share?url=<%= idea_url(@idea) %>&text=<%= @idea.title %>&hashtags=MechaBetter" target="_blank"><%= image_tag('twitter.png') %></a>
+                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><%= image_tag('facebook.png') %></a></div>
+                </div>
+            </div>
+        </div>
+        <ul class="idea_reaction_list">
+            <% @reactions.each do |reaction| %>
+                <li class="<%= left_or_right(@idea.user, reaction.user) %>">
+                    <div class="reaction_user">
+                        <% if reaction.user.blank? %>
+                            <%= image_tag("dammy.png") %>
+                            <p>削除されたユーザー</p>
+                        <% else %>
+                            <%= image_tag(reaction.user.icon) %>
+                            <p><%= reaction.user.name %></p>
+                        <% end %>
+                    </div>
+                    <pre><%= reaction.comment %></pre>
+                    <p><%= reaction.created_at.strftime("%Y/%m/%d %R") %></p>
                 </li>
             <% end %>
         </ul>
-        <div class="sns_links">
-            <%= render 'applause_form' %>
-            <div class="sns">
-                <a href="http://twitter.com/share?url=<%= idea_url(@idea) %>&text=<%= @idea.title %>&hashtags=MechaBetter" target="_blank"><%= image_tag('twitter.png') %></a>
-                <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><%= image_tag('facebook.png') %></a></div>
-            </div>
-        </div>
-    </div>
-    <ul class="idea_reaction_list">
-        <% @reactions.each do |reaction| %>
-            <li class="<%= left_or_right(@idea.user, reaction.user) %>">
-                <div class="reaction_user">
-                    <%= image_tag(reaction.user.icon) %>
-                    <p><%= reaction.user.name %></p>
-                </div>
-                <pre><%= reaction.comment %></pre>
-                <p><%= reaction.created_at.strftime("%Y/%m/%d %R") %></p>
-            </li>
+        <%= form_for(@reaction, url: idea_idea_reactions_path(@idea, @reaction)) do |f| %>
+            <%= f.text_area :comment, placeholder: "コメントを送る！", rows: 5 %>
+            <%= f.submit '送信' %>
         <% end %>
-    </ul>
-
-    <%= form_for(@reaction, url: idea_idea_reactions_path(@idea, @reaction)) do |f| %>
-        <%= f.text_area :comment, placeholder: "コメントを送る！", rows: 5 %>
-        <%= f.submit '送信' %>
-    <% end %>
+    </div>
+    <%= render("right_column") %>
 </div>
 
-<%= render("right_column") %>
-
 </div>
+
+<%= render("layouts/footer") %>

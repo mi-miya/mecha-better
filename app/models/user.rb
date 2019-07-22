@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-    has_many :ideas
-    has_many :idea_reactions
-    has_many :applauses
+    has_many :ideas, dependent: :nullify
+    has_many :idea_reactions, dependent: :nullify
+    has_many :applauses, dependent: :nullify
 
     def self.find_or_create_from_auth(auth)
         email = auth[:info][:email]
@@ -10,9 +10,9 @@ class User < ApplicationRecord
         icon = auth[:info][:image]
         oauth_token = auth[:credentials][:token]
         case provider
-        when "twitter", "facebook" then
+        when "facebook" then
             name = auth[:info][:name]
-        when "github" then
+        when "github", "twitter" then
             name = auth[:info][:nickname]
         end
 
