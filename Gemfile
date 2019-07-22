@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem "jquery-rails"
 gem "kaminari"
 gem "rails-i18n"
+gem 'rinku'
 
 # OAuth
 gem 'omniauth'

@@ -35,7 +35,7 @@
         <h1><%= @idea.title %></h1>
 
         <div class="idea_cotents">
-            <pre><%= @idea.body %></pre>
+            <pre><%= raw Rinku.auto_link(@idea.body, :all, 'target="_blank"') %></pre>
             <ul class="idea_tags">
                 <% @idea.tag.split(",").each do |tag| %>
                     <li>
