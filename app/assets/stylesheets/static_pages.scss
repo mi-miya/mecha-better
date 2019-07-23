@@ -67,13 +67,15 @@
                 }
             }
             >h2 {
-                font-size: 3ve;
+                margin-bottom: 0.5vw;
+                font-size: 3.4ve;
                 @include mediaTB {
+                    margin-bottom: 3px;
                     font-size: 2.2rem;
                 }
             }
             >p {
-                font-size: 3vw;
+                font-size: 4vw;
                 @include mediaTB {
                     font-size: 1.6rem;
                 }
@@ -126,8 +128,8 @@
                         >pre {
                             margin: 2vw 0;
                             padding: 2vw 0;
-                            font-size: 3.8vw;
-                            line-height: 4.7vw;
+                            font-size: 4vw;
+                            line-height: 4.8vw;
                             text-align: left;
                             border-width: 1px 0 1px 0;
                             border-style: solid;
@@ -135,8 +137,8 @@
                             @include mediaTB {
                                 margin: 5px 0;
                                 padding: 5px 0;
-                                font-size: 1.6rem;
-                                line-height: 2rem;
+                                font-size: 1.5rem;
+                                line-height: 2.2rem;
                             }
                         }
                         .idea_rei_user {

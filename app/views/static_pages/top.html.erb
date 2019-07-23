@@ -34,7 +34,7 @@
         <%= link_to(idea_path(applause.idea)) do %>
           <div class="idea_rei_text">
             <h2><%= applause.idea.title.truncate(30) %></h2>
-            <pre><%= applause.idea.body.truncate(55) %></pre>
+            <pre><%= applause.idea.body.truncate(65) %></pre>
             <div class="idea_rei_user">
               <% if applause.idea.user.blank? %>
                 <%= image_tag("dammy.png") %>

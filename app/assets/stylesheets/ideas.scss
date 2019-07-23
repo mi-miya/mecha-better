@@ -396,7 +396,7 @@ $right_header_color: #353535;
                     padding: 4vw 3vw;
                     box-sizing: border-box;
                     font-size: 4vw;
-                    line-height: 4.6vw;
+                    line-height: 5vw;
                     border-width: 1px 0 1px 0;
                     border-style: solid;
                     border-color: #8f8f8f;
@@ -404,7 +404,7 @@ $right_header_color: #353535;
                         margin: 5px 0;
                         padding: 5px 15px;
                         font-size: 1.2rem;
-                        line-height: 1.6rem;
+                        line-height: 1.7rem;
                         text-align: left;
                     }
                 }
@@ -762,11 +762,11 @@ form.new_idea, form.edit_idea {
                 padding: 2vw;
                 box-sizing: border-box;
                 font-size: 4vw;
-                line-height: 4.6vw;
+                line-height: 5.2vw;
                 @include mediaTB {
                     width: 100%;
                     font-size: 1.5rem;
-                    line-height: 2rem;
+                    line-height: 2.4rem;
                 }
                 a {
                     text-decoration: underline;
