@@ -25,11 +25,16 @@ gem 'omniauth-facebook'
 
 # SEO
 gem 'meta-tags'
+gem 'sitemap_generator'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :development do
+  gem 'rails-erd'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
