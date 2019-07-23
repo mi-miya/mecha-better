@@ -1,4 +1,6 @@
 class ApplausesController < ApplicationController
+    before_action :authenticate
+
     def create
         @idea = Idea.find(params[:idea_id])
         current_user.applaud(@idea)
