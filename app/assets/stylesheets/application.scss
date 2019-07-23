@@ -3,6 +3,7 @@
  *= require_tree .
  */
 
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap");
 @import "media.scss";
 
 * {
@@ -18,10 +19,7 @@ html {
 
 body {
     background-image: image-url("background.jpg");
-}
-
-h1, h2, h3, h4, h5 {
-    font-weight: normal;
+    font-family: 'Noto Sans JP', arial, sans-serif;
 }
 
 p, a {

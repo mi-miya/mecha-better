@@ -64,7 +64,6 @@ $right_header_color: #353535;
     }
     h1 {
         color: #ffffff;
-        font-weight: bold;
         font-size: 9vw;
         transform: rotate(-5deg);
         @include mediaTB {
@@ -384,7 +383,6 @@ $right_header_color: #353535;
                     a {
                         font-size: 5vw;
                         line-height: 6.5vw;
-                        font-weight: bold;
                         color: #303030;
                         @include mediaTB {
                             font-size: 1.7rem;
@@ -489,7 +487,6 @@ $right_header_color: #353535;
             text-align: center;
             font-size: 7vw;
             transform: rotate(-5deg);
-            font-weight: bold;
             color: #ffffff;
             @include mediaTB {
                 font-size: 4rem;
@@ -748,7 +745,6 @@ form.new_idea, form.edit_idea {
             margin-bottom: 4vw;
             text-align: center;
             font-size: 5.5vw;
-            font-weight: bold;
             @include mediaTB {
                 margin-bottom: 0;
                 font-size: 2.2rem;
