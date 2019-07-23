@@ -26,10 +26,6 @@ gem 'omniauth-facebook'
 # SEO
 gem 'meta-tags'
 
-group :development, :test do
-  gem 'rails-env-credentials'
-end
-
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'spring'

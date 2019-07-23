@@ -9,8 +9,6 @@ module ApplicationHelper
       description: 'アイデアのCtoC!MechaBetterでアイデアを共有・実現して『めっちゃベター』な未来を作ろう！',
       keywords: 'アイデア,不満,共有,サービス',
       canonical: request.original_url,
-      og: defalut_og,
-      twitter: default_twitter_card,
       icon: [
         { href: image_url('mb_icon.png') },
         { href: image_url('mb_icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
@@ -23,10 +21,9 @@ module ApplicationHelper
         url: request.original_url,
         image: image_url('sns_card.jpg'),
         locale: 'ja_JP',
-
       },
       fg: {
-        app_id: ""
+        app_id: Rails.application.credentials[Rails.env.to_sym][:facebook][:key]
       },
       twitter: {
         title: :title,
