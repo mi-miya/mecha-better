@@ -7,4 +7,9 @@ class StaticPagesController < ApplicationController
 
   def privacy
   end
+
+  def sitemap
+    @domain = "#{request.protocol}#{request.host}"
+    @ideas = Idea.all
+  end
 end
