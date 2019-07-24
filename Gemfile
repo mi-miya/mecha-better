@@ -25,7 +25,6 @@ gem 'omniauth-facebook'
 
 # SEO
 gem 'meta-tags'
-gem 'sitemap_generator'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
