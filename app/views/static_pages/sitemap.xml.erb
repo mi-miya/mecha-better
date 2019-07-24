@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc><%= @domain %></loc>
+   </url>
+   <url>
+      <loc><%= @domain %>/ideas</loc>
+   </url>
+   <url>
+      <loc><%= @domain %>/ideas/new</loc>
+   </url>
+   <url>
+      <loc><%= @domain %>/signin</loc>
+   </url>
+   <% @ideas.each do |idea| %>
+      <url>
+         <loc><%= "#{@domain}/ideas/#{idea.id}" %></loc>
+         <lastmod><%= idea.created_at.strftime("%Y-%m-%d") %></lastmod>
+         <changefreq>always</changefreq>
+         <priority>0.8</priority>
+      </url>
+   <% end %>
+</urlset>
