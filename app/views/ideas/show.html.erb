@@ -37,7 +37,7 @@
         <h1><%= @idea.title %></h1>
 
         <div class="idea_cotents">
-            <pre><%= raw Rinku.auto_link(@idea.body, :all, 'target="_blank"') %></pre>
+            <pre><%= raw Rinku.auto_link(@idea.body, :all, 'target="_blank" class="external_link"') %></pre>
             <ul class="idea_tags">
                 <% @idea.tag.split(",").each do |tag| %>
                     <li>
@@ -81,3 +81,11 @@
 </div>
 
 <%= render("layouts/footer") %>
+
+<script type="text/javascript">
+    $('.external_link').click(function(){
+        if(!confirm('外部のページへ移動します。よろしいですか？')){
+            return false;
+        }
+    })
+</script>
