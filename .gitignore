@@ -12,3 +12,5 @@
 /config/master.key
 /note/*
 /erd.pdf
+/public/sitemaps
+/public/aws

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   root to: 'static_pages#top'
+  
+  get 'sitemap.xml.gz', to: redirect('https://mecha-better-bucket.s3.amazonaws.com/sitemaps/sitemap.xml.gz')
 end

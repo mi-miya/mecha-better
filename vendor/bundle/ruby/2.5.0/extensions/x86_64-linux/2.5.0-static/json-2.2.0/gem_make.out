@@ -1,0 +1,13 @@
+current directory: /home/misato/Documents/mecha_better/vendor/bundle/ruby/2.5.0/gems/json-2.2.0/ext/json
+/home/misato/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20190724-22425-1er9xd2.rb extconf.rb
+creating Makefile
+
+current directory: /home/misato/Documents/mecha_better/vendor/bundle/ruby/2.5.0/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/misato/Documents/mecha_better/vendor/bundle/ruby/2.5.0/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: 'all' に対して行うべき事はありません.
+
+current directory: /home/misato/Documents/mecha_better/vendor/bundle/ruby/2.5.0/gems/json-2.2.0/ext/json
+make "DESTDIR=" install
