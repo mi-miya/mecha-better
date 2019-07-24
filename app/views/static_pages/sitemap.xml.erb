@@ -12,9 +12,12 @@
    <url>
       <loc><%= @domain %>/signin</loc>
    </url>
-  <% @ideas.each do |idea| %>
-    <url>
-      <loc><%= "#{@domain}/ideas/#{idea.id}" %></loc>
-    </url>
+   <% @ideas.each do |idea| %>
+      <url>
+         <loc><%= "#{@domain}/ideas/#{idea.id}" %></loc>
+         <lastmod><%= idea.created_at.strftime("%Y-%m-%d") %></lastmod>
+         <changefreq>always</changefreq>
+         <priority>0.8</priority>
+      </url>
    <% end %>
 </urlset>
