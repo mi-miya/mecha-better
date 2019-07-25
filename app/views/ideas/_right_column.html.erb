@@ -11,6 +11,8 @@
 <div class="idea_count">
     <h3>アイデアの総数</h3>
     <p><%= Idea.count %></p>
+    <h3>拍手の総数</h3>
+    <p><%= Applause.sum(:count) %></p>
     <h3>解決したアイデア数</h3>
     <p><%= Idea.where(state: ["実現済み", "既にある"]).count %></p>
     <h3>コメント総数</h3>
@@ -41,9 +43,9 @@
     </ul>
     <h2>人気のアイデア</h2>
     <ul class="popular_idea_list">
-        <% Applause.all.order(count: "DESC").limit(7).each do|applause| %>
+        <%  Idea.includes(:applauses).order("applauses.count").limit(3).each do |idea| %>
             <li>
-                <%= link_to(applause.idea.title.truncate(20), idea_path(applause.idea)) %>
+                <%= link_to(idea.title.truncate(20), idea_path(idea)) %>
             </li>
         <% end %>
     </ul>
