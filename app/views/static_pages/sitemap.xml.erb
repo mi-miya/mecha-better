@@ -2,15 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc><%= @domain %></loc>
+      <priority>1.00</priority>
    </url>
    <url>
       <loc><%= @domain %>/ideas</loc>
+      <priority>0.80</priority>
    </url>
    <url>
       <loc><%= @domain %>/ideas/new</loc>
+      <priority>0.65</priority>
    </url>
    <url>
       <loc><%= @domain %>/signin</loc>
+      <priority>0.65</priority>
+   </url>
+   <url>
+      <loc><%= @domain %>/privacy</loc>
+      <priority>0.65</priority>
    </url>
    <% @ideas.each do |idea| %>
       <url>
