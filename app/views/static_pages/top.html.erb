@@ -3,7 +3,7 @@
 <%= render("layouts/header") %>
 <div class="top_page">
 <div class="idea_bosyu">
-  <h2>あなたのアイデアで<br><span class="otsumami">めっちゃベター</span>な未来を作ろう！</h2>
+  <h2>あなたのアイデアで<br><span class="mechaBetter">めっちゃベター</span>な未来を作ろう！</h2>
   <p>MechaBetterは、気軽にアイデアを投稿しみんなで盛り上がるサービスです。</p>
   <%= link_to("アイデアを見る", ideas_path) %>
 </div>
@@ -29,19 +29,19 @@
 <div class="idea_rei">
   <h1>こんなアイデアが投稿されています！</h1>
   <ul class="idea_rei_list">
-    <% Applause.all.order(count: "DESC").limit(3).each do|applause| %>
+    <% @ideas.each do|idea| %>
       <li>
-        <%= link_to(idea_path(applause.idea)) do %>
+        <%= link_to(idea_path(idea)) do %>
           <div class="idea_rei_text">
-            <h2><%= applause.idea.title.truncate(30) %></h2>
-            <pre><%= applause.idea.body.truncate(65) %></pre>
+            <h2><%= idea.title.truncate(30) %></h2>
+            <pre><%= idea.body.truncate(65) %></pre>
             <div class="idea_rei_user">
-              <% if applause.idea.user.blank? %>
+              <% if idea.user.blank? %>
                 <%= image_tag("dammy.png") %>
                 <p>削除されたユーザー</p>
               <% else %>
-                <%= image_tag(applause.idea.user.icon) %>
-                <p><%= applause.idea.user.name %></p>
+                <%= image_tag(idea.user.icon) %>
+                <p><%= idea.user.name %></p>
               <% end %>
             </div>
           </div>
@@ -51,7 +51,7 @@
   </ul>
 </div>
 <div class="idea_letsgo">
-  <h3>さあ、あなたもアイデアを投稿しましょう！</h3>
+  <h3>あなたもアイデアを投稿しましょう！</h3>
   <div class="idea_letdgo_links">
       <%= link_to("アイデアを見る", ideas_path, class: "ideas_link") %>
       <%= link_to("ログイン", signin_path, class: "login_link") %>

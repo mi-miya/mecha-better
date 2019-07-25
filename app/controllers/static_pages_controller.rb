@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def top
+    @ideas = Idea.includes(:applauses).order("applauses.count").limit(3)
   end
 
   def signin
