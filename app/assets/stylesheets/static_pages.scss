@@ -24,7 +24,7 @@ $button_shadow_tb: 3px 5px 5px -5px #353535;
             @include mediaTB {
                 margin: 0 0 30px;
                 font-size: 4.6rem;
-                line-height: auto;
+                line-height: 5.4rem;
                 color: #313131;
                 line-height: 5.6rem;
             }
@@ -148,7 +148,7 @@ $button_shadow_tb: 3px 5px 5px -5px #353535;
                             line-height: 6.2vw;
                             @include mediaTB {
                                 font-size: 2rem;
-                                line-height: auto;
+                                line-height: 2.6rem;
                             }
                         }
                         >pre {
