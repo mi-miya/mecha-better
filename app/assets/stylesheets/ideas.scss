@@ -701,11 +701,12 @@ form.new_idea, form.edit_idea {
             }
         }
         .idea_date_and_user {
+            max-width: 650px;
             margin: 3vw 0 6vw;
             display: flex;
             justify-content: space-between;
             @include mediaTB {
-                margin: 0;
+                margin: 0 auto;
             }
             p {
                 font-size: 3.5vw;
@@ -722,17 +723,17 @@ form.new_idea, form.edit_idea {
                 img {
                     width: 7vw;
                     height: 7vw;
-                    margin-right: 0.5vw;
+                    margin-right: 0.8vw;
                     border-radius: 3.5vw;
                     @include mediaTB {
                         width: 3rem;
                         height: 3rem;
-                        margin-right: auto;
+                        margin-right: 5px;
                         border-radius: 1.5rem;
                     }
                 }
                 p {
-                    font-size: 4.5vw;
+                    font-size: 4.3vw;
                     color: #575757;
                     @include mediaTB {
                         font-size: 1.6rem;
