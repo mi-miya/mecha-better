@@ -49,7 +49,7 @@
                 <%= render 'applause_form' %>
                 <div class="sns">
                     <a href="http://twitter.com/share?url=<%= idea_url(@idea) %>&text=<%= @idea.title %>&hashtags=MechaBetter" target="_blank"><%= image_tag('twitter.png') %></a>
-                    <div class="fb-share-button" data-href="https://mecha-better.ml" data-layout="button_count" data-size="small">
+                    <div class="fb-share-button" data-href="https://mecha-better.ml/ideas/<%= @idea.id %>" data-layout="button_count" data-size="small">
                         <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmecha-better.ml%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
                             <%= image_tag('facebook.png') %>
                         </a>
