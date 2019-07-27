@@ -4,15 +4,17 @@ class User < ApplicationRecord
     has_many :applauses, dependent: :nullify
 
     def self.find_or_create_from_auth(auth)
-        email = auth[:info][:email]
-        provider = auth[:provider]
         uid = auth[:uid]
         icon = auth[:info][:image]
         oauth_token = auth[:credentials][:token]
+        provider = auth[:provider]
+        email = auth[:info][:email]
         case provider
         when "facebook" then
             name = auth[:info][:name]
-        when "github", "twitter" then
+        when "twitter" then
+            name = auth[:info][:nickname]
+        when "github" then
             name = auth[:info][:nickname]
         end
 
