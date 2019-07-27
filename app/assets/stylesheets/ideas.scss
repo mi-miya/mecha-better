@@ -664,7 +664,7 @@ form.new_idea, form.edit_idea {
 .idea_show {
     max-width: 1280px;
     margin: 0 auto;
-    @include mediaPC {
+    @include mediaTB {
         display: flex;
     }
     .idea_show_left {
