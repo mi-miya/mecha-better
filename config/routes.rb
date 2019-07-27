@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'signin',  to: "static_pages#signin"
   get 'sitemap', to: "static_pages#sitemap"
   get 'privacy', to: "static_pages#privacy"
+  get 'terms', to: "static_pages#terms"
   get 'auth/:provider/callback', to: 'sessions#create'
 end

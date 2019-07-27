@@ -335,7 +335,7 @@ $button_shadow_tb: 3px 5px 5px -5px #353535;
     }
 }
 
-.privacy {
+.privacy, .terms {
     max-width: 900px;
     margin: 0 auto;
     padding: 10px;
@@ -343,6 +343,10 @@ $button_shadow_tb: 3px 5px 5px -5px #353535;
         text-align: center;
     }
     >p {
+        margin: 10px 20px 20px;
+    }
+    ol {
+        list-style: auto;
         margin: 10px 20px 20px;
     }
 }

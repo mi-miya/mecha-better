@@ -706,7 +706,7 @@ form.new_idea, form.edit_idea {
             display: flex;
             justify-content: space-between;
             @include mediaTB {
-                margin: 0 auto;
+                margin: 0 auto 40px;
             }
             p {
                 font-size: 3.5vw;
