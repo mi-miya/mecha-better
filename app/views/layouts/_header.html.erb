@@ -10,8 +10,8 @@
                     <% end %>
                 </li>
                 <li>
-                    <%= link_to("ログアウト", logout_path, class: "pc_only") %>
-                    <%= link_to(logout_path, class: "sp_only") do %>
+                    <%= link_to("ログアウト", logout_path, class: "pc_only", data: {confirm: "ログアウトしますか？"}) %>
+                    <%= link_to(logout_path, class: "sp_only", data: {confirm: "ログアウトしますか？"}) do %>
                         <%= image_tag("logout.png") %>
                     <% end %>
                 </li>

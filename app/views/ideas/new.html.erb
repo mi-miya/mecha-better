@@ -40,8 +40,8 @@
     </div>
 
     <div class="form_button">
-        <%= f.submit '送信' %>
-        <%= link_to('アイデア一覧へ', ideas_path) %>
+        <%= f.submit('送信', data: {confirm: "アイデア名と詳細は後から変更できません。\nこのまま投稿しますか？"}) %>
+        <%= link_to('アイデア一覧へ', ideas_path, data: {confirm: "内容は保存されていません。\nこのまま移動しますか？"}) %>
     </div>
 <% end %>
 
