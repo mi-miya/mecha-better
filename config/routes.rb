@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users, only: [:show]
   resources :ideas do
     resources :idea_reactions, :only => [:create]
   end
