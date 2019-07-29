@@ -16,7 +16,7 @@
                     <% end %>
                 </li>
                 <li>
-                    <%= link_to("#") do %>
+                    <%= link_to(user_path(current_user.id)) do %>
                         <%= image_tag(current_user.icon, class: "user_icon") %>
                     <% end %>
                 </li>

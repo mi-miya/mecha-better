@@ -1,0 +1,52 @@
+<%= render("layouts/header") %>
+
+<div class="user_show">
+    <div class="user_show_name">
+        <%= image_tag(@user.icon) %>
+        <h1><%= @user.name %></h1>
+    </div>
+    <ul class="user_show_list">
+        <li>
+            <h2>拍手したアイデア</h2>
+            <ul>
+                <% @applaused_ideas.each do |idea| %>
+                    <li>
+                        <%= link_to("#{idea.title.truncate(30)} ( #{idea.applauses.find_by(user_id: @user.id).count} )", idea_path(idea.id)) %>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+        <li>
+            <h2>投稿したアイデア</h2>
+            <ul>
+                <% @posted_ideas.each do |idea| %>
+                    <li>
+                        <%= link_to(idea.title.truncate(30), idea_path(idea.id)) %>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+        <li>
+            <h2>コメント履歴</h2>
+            <ul>
+                <% @user_reactions.each do |reaction| %>
+                    <li>
+                        <%= link_to(reaction.comment.truncate(30), idea_path(reaction.idea.id)) %>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+        <li>
+            <h2>開発中のアイデア</h2>
+            <ul>
+                <% @developed_idea.each do |idea| %>
+                    <li>
+                        <%= link_to(idea.title.truncate(30), idea_path(idea.id)) %>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<%= render("layouts/footer") %>
