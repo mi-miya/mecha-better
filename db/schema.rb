@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_165159) do
+ActiveRecord::Schema.define(version: 2019_07_30_155620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 2019_07_16_165159) do
     t.index ["idea_id"], name: "index_applauses_on_idea_id"
     t.index ["user_id", "idea_id"], name: "index_applauses_on_user_id_and_idea_id", unique: true
     t.index ["user_id"], name: "index_applauses_on_user_id"
+  end
+
+  create_table "idea_developers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "idea_id"
+    t.boolean "develop", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idea_id"], name: "index_idea_developers_on_idea_id"
+    t.index ["user_id"], name: "index_idea_developers_on_user_id"
+  end
+
+  create_table "idea_developpers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "idea_id"
+    t.boolean "develop", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["idea_id"], name: "index_idea_developpers_on_idea_id"
+    t.index ["user_id"], name: "index_idea_developpers_on_user_id"
   end
 
   create_table "idea_reactions", force: :cascade do |t|
@@ -60,6 +80,10 @@ ActiveRecord::Schema.define(version: 2019_07_16_165159) do
 
   add_foreign_key "applauses", "ideas"
   add_foreign_key "applauses", "users"
+  add_foreign_key "idea_developers", "ideas"
+  add_foreign_key "idea_developers", "users"
+  add_foreign_key "idea_developpers", "ideas"
+  add_foreign_key "idea_developpers", "users"
   add_foreign_key "idea_reactions", "ideas"
   add_foreign_key "idea_reactions", "users"
   add_foreign_key "ideas", "users"
