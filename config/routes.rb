@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :ideas do
     resources :idea_reactions, :only => [:create]
+    resources :idea_developers, :only => [:create, :update, :destroy]
+    get :tasks
   end
   resources :applauses, only: [:create, :destroy]
 

@@ -56,6 +56,19 @@
                     </div>
                 </div>
             </div>
+            <% if logged_in? %>
+                <%= form_for(@idea_developer, url: idea_idea_developers_path(@idea, @idea_developer)) do |f| %>
+                    <% if @developing_idea.nil? %>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <%= f.hidden_field :idea_id, value: @idea.id %>
+                        <%= f.submit '開発に立候補する！', class: "rikkouho", data: {confirm: "開発に立候補します。よろしいですか？"} %>
+                    <% elsif @developing_idea.develop == true %>
+                        <%= link_to("開発ページへ", idea_tasks_path(@idea)) %>
+                    <% else %>
+                        <%= f.submit '立候補済み(承認待ち)', disabled: true %>
+                    <% end %>
+                <% end %>
+            <% end %>
         </div>
         <ul class="idea_reaction_list">
             <% @reactions.each do |reaction| %>
@@ -74,9 +87,13 @@
                 </li>
             <% end %>
         </ul>
-        <%= form_for(@reaction, url: idea_idea_reactions_path(@idea, @reaction)) do |f| %>
-            <%= f.text_area :comment, placeholder: "コメントを送る！", rows: 5 %>
-            <%= f.submit '送信' %>
+        <% if logged_in? %>
+            <%= form_for(@idea_reaction, url: idea_idea_reactions_path(@idea, @idea_reaction)) do |f| %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :idea_id, value: @idea.id %>
+                <%= f.text_area :comment, placeholder: "コメントを送る！", rows: 5 %>
+                <%= f.submit '送信' %>
+            <% end %>
         <% end %>
     </div>
     <%= render("right_column") %>

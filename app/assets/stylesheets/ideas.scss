@@ -635,7 +635,7 @@ form.new_idea, form.edit_idea {
         @include mediaTB {
             margin-top: 15px;
         }
-        input {
+        >input {
             width: 60%;
             margin: 0 auto 2vw;
             padding: 1vw 0;
@@ -649,7 +649,7 @@ form.new_idea, form.edit_idea {
                 font-size: 1.8rem;
             }
         }
-        a {
+        >a {
             margin: 0 auto;
             display: inline;
             font-size: 4vw;
@@ -708,7 +708,7 @@ form.new_idea, form.edit_idea {
             @include mediaTB {
                 margin: 0 auto 40px;
             }
-            p {
+            >p {
                 font-size: 3.5vw;
                 line-height: 7vw;
                 color: #575757;
@@ -717,10 +717,10 @@ form.new_idea, form.edit_idea {
                     line-height: 3rem;
                 }
             }
-            div {
+            >div {
                 display: flex;
                 align-items: middle;
-                img {
+                >img {
                     width: 7vw;
                     height: 7vw;
                     margin-right: 0.8vw;
@@ -732,7 +732,7 @@ form.new_idea, form.edit_idea {
                         border-radius: 1.5rem;
                     }
                 }
-                p {
+                >p {
                     font-size: 4.3vw;
                     color: #575757;
                     @include mediaTB {
@@ -742,7 +742,7 @@ form.new_idea, form.edit_idea {
                 }
             }
         }
-        h1 {
+        >h1 {
             margin-bottom: 4vw;
             text-align: center;
             font-size: 5.5vw;
@@ -759,7 +759,7 @@ form.new_idea, form.edit_idea {
                 max-width: 600px;
                 margin: 0 auto 30px;
             }
-            pre {
+            >pre {
                 padding: 2vw;
                 box-sizing: border-box;
                 font-size: 4vw;
@@ -769,7 +769,7 @@ form.new_idea, form.edit_idea {
                     font-size: 1.5rem;
                     line-height: 2.4rem;
                 }
-                a {
+                >a {
                     text-decoration: underline;
                     color: rgb(0, 26, 255);
                 }
@@ -781,18 +781,17 @@ form.new_idea, form.edit_idea {
                     margin: 0;
                     padding: 0 10px;
                 }
-                li {
+                >li {
                     margin: 0 1vw 3vw 0;
                     display: inline-block;
                     @include mediaTB {
                         margin: 0 3px 15px 0;
                     }
-                    a {
+                    >a {
                         padding: 1vw 2.5vw;
                         line-height: 4vw;
                         border-radius: 3vw;
-                        color: #ffffff;
-                        background-color: $idea_border_color;
+                        background-color: #d6d6d6;
                         @include mediaTB {
                             padding: 5px 15px;
                             font-size: 1.5rem;
@@ -801,17 +800,45 @@ form.new_idea, form.edit_idea {
                     }
                 }
             }
+            form.new_idea_developer {
+                text-align: center;
+                input[type="submit"] {
+                    padding: 1vw 4vw;
+                    font-size: 4vw;
+                    @include mediaTB {
+                        padding: 3px 18px;
+                        font-size: 1.8rem;
+                    }
+                    &.rikkouho {
+                        font-weight: bold;
+                        color: #ffffff;
+                        background-color: #49d31f;
+                    }
+                }
+                >a {
+                    padding: 1vw 4vw;
+                    font-size: 4vw;
+                    color: #ffffff;
+                    border: 1px solid #48588d;
+                    background-color: #2b5cff;
+                    @include mediaTB {
+                        padding: 3px 18px;
+                        font-size: 1.8rem;
+                    }
+                }
+            }
             .sns_links {
+                margin: 0 0 6vw;
                 display: flex;
                 justify-content: space-between;
                 @include mediaTB {
                     width: 80%;
-                    margin: 0 auto;
+                    margin: 0 0 10px;
                 }
                 form#applause_form {
                     display: flex;
                     align-items: center;
-                    button {
+                    >button {
                         padding: 1vw 2vw;
                         font-size: 3.5vw;
                         line-height: 5.5vw;
@@ -823,7 +850,7 @@ form.new_idea, form.edit_idea {
                             font-size: 1.1rem;
                             line-height: 2rem;
                         }
-                        img {
+                        >img {
                             width: auto;
                             height: 5vw;
                             margin-left: 0.5vw;
@@ -836,7 +863,7 @@ form.new_idea, form.edit_idea {
                             }
                         }
                     }
-                    p {
+                    >p {
                         padding: 1vw 3vw;
                         display: inline-block;
                         font-size: 5vw;
@@ -871,7 +898,7 @@ form.new_idea, form.edit_idea {
         }
     }
     .idea_reaction_list {
-        li {
+        >li {
             width: 95%;
             margin: 4vw auto 6vw;
             @include mediaTB {
@@ -884,9 +911,9 @@ form.new_idea, form.edit_idea {
                 display: flex;
                 align-items: middle;
                 @include mediaTB {
-                    padding: 0 15px;
+                    padding: 0 13px;
                 }
-                img {
+                >img {
                     width: 7vw;
                     height: 7vw;
                     margin: 0 0.5vw;
@@ -898,16 +925,18 @@ form.new_idea, form.edit_idea {
                         border-radius: 1.6rem;
                     }
                 }
-                p {
+                >p {
+                    padding: 0 2vw;
                     font-size: 4.5vw;
                     color: #3d3d3d;
                     @include mediaTB {
+                        padding: 0 10px;
                         font-size: 1.9rem;
-                        padding: 0;
+                        line-height: 37px;
                     }
                 }
             }
-            pre {
+            >pre {
                 width: 100%;
                 margin: 2.5vw 0 1vw;
                 padding: 2.5vw;

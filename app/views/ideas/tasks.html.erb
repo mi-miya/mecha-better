@@ -1,0 +1,32 @@
+<div class="idea_tasks">
+    <h1><%= @idea.title %> タスク管理</h1>
+    <div class="tasks_users">
+        <div class="developers">
+            <h2>Developers - 開発者 -</h2>
+            <ul>
+                <% @developers.each do |developer| %>
+                    <li>
+                        <p><%= developer.user.name %></p>
+                        <div>
+                            <%= link_to("削除", idea_idea_developer_path(candidates.idea, candidates), method: :delete) %>
+                        </div>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="candidates">
+            <h2>Candidates - 立候補者 -</h2>
+            <ul>
+                <% @candidates.each do |candidates| %>
+                    <li>
+                        <p><%= candidates.user.name %></p>
+                        <div>
+                            <%= link_to("許可", idea_idea_developer_path(candidates.idea, candidates), method: :put, params: {develop: true}) %>
+                            <%= link_to("拒否", idea_idea_developer_path(candidates.idea, candidates), method: :delete) %>
+                        </div>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
