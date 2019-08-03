@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+アイデア共有サービス【mecha-better】です
+現在は非公開となっています。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![mecha-better-top](https://user-images.githubusercontent.com/24958187/62415355-98051c00-b663-11e9-939a-2feda5470117.jpg)
