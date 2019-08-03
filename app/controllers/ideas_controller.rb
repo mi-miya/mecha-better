@@ -53,7 +53,19 @@ class IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @reactions = @idea.idea_reactions
-    @reaction = IdeaReaction.new
+    @idea_reaction = IdeaReaction.new
+    @idea_developer = IdeaDeveloper.new
+    if logged_in?
+      @developing_idea = IdeaDeveloper.find_by(idea_id: @idea.id, user_id: current_user.id)
+    else
+      @developing_idea = nil
+    end
+  end
+
+  def tasks
+    @idea = Idea.find(params[:idea_id])
+    @developers = IdeaDeveloper.where(idea_id: @idea.id, develop: true)
+    @candidates = IdeaDeveloper.where(idea_id: @idea.id).where.not(develop: true)
   end
 
   def edit
